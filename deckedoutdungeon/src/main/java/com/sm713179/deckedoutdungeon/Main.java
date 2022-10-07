@@ -9,7 +9,7 @@ package com.sm713179.deckedoutdungeon;
  *
  * @author Samuel McClatchey
  */
-public class Deckedoutdungeon {
+public class Main {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
