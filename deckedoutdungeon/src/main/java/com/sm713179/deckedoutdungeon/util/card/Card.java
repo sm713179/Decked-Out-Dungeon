@@ -13,4 +13,25 @@ import javax.swing.ImageIcon;
 public abstract class Card {
     String name;
     ImageIcon portrait;
+
+    public Card(String name, ImageIcon portrait) {
+        this.name = name;
+        this.portrait = portrait;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ImageIcon getPortrait() {
+        return portrait;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPortrait(ImageIcon portrait) {
+        this.portrait = portrait;
+    }
 }

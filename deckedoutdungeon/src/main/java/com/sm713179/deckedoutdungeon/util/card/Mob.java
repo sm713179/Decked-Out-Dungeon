@@ -4,6 +4,8 @@
  */
 package com.sm713179.deckedoutdungeon.util.card;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Samuel McClatchey
@@ -11,4 +13,30 @@ package com.sm713179.deckedoutdungeon.util.card;
 public class Mob extends Card {
     int hp;
     int baseHp;
+
+    public Mob(int hp, int baseHp, String name, ImageIcon portrait) {
+        super(name, portrait);
+        this.hp = hp;
+        this.baseHp = baseHp;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public int getBaseHp() {
+        return baseHp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    public void setBaseHp(int baseHp) {
+        this.baseHp = baseHp;
+    }
+    
+    public void restoreHp() {
+        hp = baseHp;
+    }
 }

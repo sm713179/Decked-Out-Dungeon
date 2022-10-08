@@ -4,6 +4,8 @@
  */
 package com.sm713179.deckedoutdungeon.util.card;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Samuel McClatchey
@@ -11,4 +13,26 @@ package com.sm713179.deckedoutdungeon.util.card;
 public class Item extends Card {
     String type;
     int value;
+
+    public Item(String type, int value, String name, ImageIcon portrait) {
+        super(name, portrait);
+        this.type = type;
+        this.value = value;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
 }
