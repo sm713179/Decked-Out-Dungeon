@@ -10,4 +10,5 @@ package com.sm713179.deckedoutdungeon.util.card;
  */
 public class Mob extends Card {
     int hp;
+    int baseHp;
 }

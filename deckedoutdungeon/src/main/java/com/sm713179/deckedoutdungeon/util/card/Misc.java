@@ -9,5 +9,5 @@ package com.sm713179.deckedoutdungeon.util.card;
  * @author Samuel McClatchey
  */
 public class Misc extends Card {
-    boolean isPassable;
+    boolean isExit;
 }

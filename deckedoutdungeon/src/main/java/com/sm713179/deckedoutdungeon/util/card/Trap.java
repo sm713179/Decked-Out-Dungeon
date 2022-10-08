@@ -12,7 +12,6 @@ import javax.swing.ImageIcon;
  */
 public class Trap extends Card {
     int dmg;
-    boolean isAlternating;
     boolean isActive;
     ImageIcon inactivePortrait;
 }

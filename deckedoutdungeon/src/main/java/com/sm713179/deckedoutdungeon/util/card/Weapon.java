@@ -10,5 +10,5 @@ package com.sm713179.deckedoutdungeon.util.card;
  */
 public class Weapon extends Card {
     int durability;
-    int maxDurability;
+    int baseDurability;
 }
