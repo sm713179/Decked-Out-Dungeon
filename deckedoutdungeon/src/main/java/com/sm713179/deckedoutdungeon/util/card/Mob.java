@@ -14,8 +14,8 @@ public class Mob extends Card {
     int hp;
     int baseHp;
 
-    public Mob(int hp, int baseHp, String name, ImageIcon portrait) {
-        super(name, portrait);
+    public Mob(int hp, int baseHp, String name, ImageIcon icon) {
+        super(name, icon);
         this.hp = hp;
         this.baseHp = baseHp;
     }

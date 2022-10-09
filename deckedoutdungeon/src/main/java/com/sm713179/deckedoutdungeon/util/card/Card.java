@@ -12,26 +12,26 @@ import javax.swing.ImageIcon;
  */
 public abstract class Card {
     String name;
-    ImageIcon portrait;
+    ImageIcon icon;
 
-    public Card(String name, ImageIcon portrait) {
+    public Card(String name, ImageIcon icon) {
         this.name = name;
-        this.portrait = portrait;
+        this.icon = icon;
     }
 
     public String getName() {
         return name;
     }
 
-    public ImageIcon getPortrait() {
-        return portrait;
+    public ImageIcon getIcon() {
+        return icon;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setPortrait(ImageIcon portrait) {
-        this.portrait = portrait;
+    public void setIcon(ImageIcon icon) {
+        this.icon = icon;
     }
 }

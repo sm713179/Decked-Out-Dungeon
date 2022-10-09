@@ -13,13 +13,13 @@ import javax.swing.ImageIcon;
 public class Trap extends Card {
     int dmg;
     boolean isActive;
-    ImageIcon inactivePortrait;
+    ImageIcon inactiveIcon;
 
-    public Trap(int dmg, boolean isActive, ImageIcon inactivePortrait, String name, ImageIcon portrait) {
-        super(name, portrait);
+    public Trap(int dmg, boolean isActive, ImageIcon inactiveIcon, String name, ImageIcon icon) {
+        super(name, icon);
         this.dmg = dmg;
         this.isActive = isActive;
-        this.inactivePortrait = inactivePortrait;
+        this.inactiveIcon = inactiveIcon;
     }
 
     public int getDmg() {
@@ -30,8 +30,8 @@ public class Trap extends Card {
         return isActive;
     }
 
-    public ImageIcon getInactivePortrait() {
-        return inactivePortrait;
+    public ImageIcon getInactiveIcon() {
+        return inactiveIcon;
     }
 
     public void setDmg(int dmg) {
@@ -42,8 +42,8 @@ public class Trap extends Card {
         this.isActive = isActive;
     }
 
-    public void setInactivePortrait(ImageIcon inactivePortrait) {
-        this.inactivePortrait = inactivePortrait;
+    public void setInactiveIcon(ImageIcon inactiveIcon) {
+        this.inactiveIcon = inactiveIcon;
     }
     
     public void toggleActive() {

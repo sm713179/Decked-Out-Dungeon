@@ -14,8 +14,8 @@ public class Item extends Card {
     ItemType type;
     int value;
 
-    public Item(ItemType type, int value, String name, ImageIcon portrait) {
-        super(name, portrait);
+    public Item(ItemType type, int value, String name, ImageIcon icon) {
+        super(name, icon);
         this.type = type;
         this.value = value;
     }
