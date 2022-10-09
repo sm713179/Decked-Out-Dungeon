@@ -11,16 +11,16 @@ import javax.swing.ImageIcon;
  * @author Samuel McClatchey
  */
 public class Item extends Card {
-    String type;
+    ItemType type;
     int value;
 
-    public Item(String type, int value, String name, ImageIcon portrait) {
+    public Item(ItemType type, int value, String name, ImageIcon portrait) {
         super(name, portrait);
         this.type = type;
         this.value = value;
     }
 
-    public String getType() {
+    public ItemType getType() {
         return type;
     }
 
@@ -28,7 +28,7 @@ public class Item extends Card {
         return value;
     }
 
-    public void setType(String type) {
+    public void setType(ItemType type) {
         this.type = type;
     }
 
