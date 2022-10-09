@@ -11,18 +11,8 @@ import javax.swing.ImageIcon;
  * @author Samuel McClatchey
  */
 public class Misc extends Card {
-    boolean isExit;
 
-    public Misc(boolean isExit, String name, ImageIcon portrait) {
+    public Misc(String name, ImageIcon portrait) {
         super(name, portrait);
-        this.isExit = isExit;
-    }
-
-    public boolean getIsExit() {
-        return isExit;
-    }
-
-    public void setIsExit(boolean isExit) {
-        this.isExit = isExit;
     }
 }

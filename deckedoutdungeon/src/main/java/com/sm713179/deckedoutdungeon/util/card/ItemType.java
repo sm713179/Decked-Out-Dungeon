@@ -9,5 +9,5 @@ package com.sm713179.deckedoutdungeon.util.card;
  * @author Samuel McClatchey
  */
 public enum ItemType {
-    SCORE, HEAL, REPAIR
+    SCORE, HEAL, REPAIR, EXIT
 }
