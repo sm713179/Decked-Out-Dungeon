@@ -14,6 +14,8 @@ import java.util.Stack;
  */
 public class Deck {
     Stack<Card> deck;
+    
+    public Deck() {}
 
     public Deck(Stack<Card> deck) {
         this.deck = deck;
@@ -36,8 +38,12 @@ public class Deck {
         return card;
     }
     
-    public void discard(Card card) {
+    public void add(Card card) {
+        deck.push(card);
+    }
+    
+    public void bury(Card card) {
         deck.push(card);
         shuffle();
-    } 
+    }
 }
