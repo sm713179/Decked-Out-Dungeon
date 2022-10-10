@@ -18,7 +18,7 @@ import org.xml.sax.SAXException;
  *
  * @author Samuel McClatchey
  */
-public class DeckReader {
+public class DeckBuilder {
     
     public Deck build(File file) {
         Deck deck = new Deck();
