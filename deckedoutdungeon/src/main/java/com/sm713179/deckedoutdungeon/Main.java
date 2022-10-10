@@ -5,6 +5,9 @@
 
 package com.sm713179.deckedoutdungeon;
 
+import com.sm713179.deckedoutdungeon.util.card.*;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Samuel McClatchey
@@ -12,6 +15,11 @@ package com.sm713179.deckedoutdungeon;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        
+            ImageIcon icon = new ImageIcon("src/main/java/com/sm713179/deckedoutdungeon/asset/icon/misc/emptyTile.png");
+            Misc card = new Misc("Empty Space", icon); 
+            System.out.println(card.getName());
+            System.out.println(card.getIcon().getIconHeight());
+            System.out.println(System.getProperty("user.dir"));
     }
 }
