@@ -4,8 +4,6 @@
  */
 package com.sm713179.deckedoutdungeon.util.card;
 
-import javax.swing.ImageIcon;
-
 /**
  *
  * @author Samuel McClatchey

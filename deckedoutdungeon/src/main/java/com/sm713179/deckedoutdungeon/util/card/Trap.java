@@ -15,11 +15,11 @@ public class Trap extends Card {
     boolean isActive;
     ImageIcon inactiveIcon;
 
-    public Trap(int dmg, boolean isActive, ImageIcon inactiveIcon, String name, String iconPath) {
+    public Trap(int dmg, boolean isActive, String inactiveIconPath, String name, String iconPath) {
         super(name, iconPath);
         this.dmg = dmg;
         this.isActive = isActive;
-        this.inactiveIcon = inactiveIcon;
+        this.inactiveIcon = new ImageIcon("src/main/java/com/sm713179/deckedoutdungeon/asset/icon/trap/inactive/" + inactiveIconPath);
     }
 
     public int getDmg() {
