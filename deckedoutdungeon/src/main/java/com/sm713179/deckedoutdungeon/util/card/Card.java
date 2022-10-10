@@ -14,9 +14,9 @@ public abstract class Card {
     String name;
     ImageIcon icon;
 
-    public Card(String name, ImageIcon icon) {
+    public Card(String name, String iconPath) {
         this.name = name;
-        this.icon = icon;
+        this.icon = new ImageIcon("src/main/java/com/sm713179/deckedoutdungeon/asset/icon/" + iconPath);
     }
 
     public String getName() {

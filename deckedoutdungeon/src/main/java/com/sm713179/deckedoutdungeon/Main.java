@@ -16,8 +16,7 @@ public class Main {
 
     public static void main(String[] args) {
         
-            ImageIcon icon = new ImageIcon("src/main/java/com/sm713179/deckedoutdungeon/asset/icon/misc/emptyTile.png");
-            Misc card = new Misc("Empty Space", icon); 
+            Misc card = new Misc("Empty Space", "misc/emptyTile.png");
             System.out.println(card.getName());
             System.out.println(card.getIcon().getIconHeight());
             System.out.println(System.getProperty("user.dir"));

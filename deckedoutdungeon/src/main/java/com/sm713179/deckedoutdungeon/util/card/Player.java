@@ -15,8 +15,8 @@ public class Player extends Card {
     int maxHp;
     Weapon weapon;
 
-    public Player(int hp, int maxHp, Weapon weapon, String name, ImageIcon icon) {
-        super(name, icon);
+    public Player(int hp, int maxHp, Weapon weapon, String name, String iconPath) {
+        super(name, iconPath);
         this.hp = hp;
         this.maxHp = maxHp;
         this.weapon = weapon;

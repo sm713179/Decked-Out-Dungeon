@@ -14,8 +14,8 @@ public class Weapon extends Card {
     int durability;
     int baseDurability;
 
-    public Weapon(int durability, int baseDurability, String name, ImageIcon icon) {
-        super(name, icon);
+    public Weapon(int durability, int baseDurability, String name, String iconPath) {
+        super(name, iconPath);
         this.durability = durability;
         this.baseDurability = baseDurability;
     }

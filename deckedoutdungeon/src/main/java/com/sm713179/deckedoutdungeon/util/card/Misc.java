@@ -12,7 +12,7 @@ import javax.swing.ImageIcon;
  */
 public class Misc extends Card {
 
-    public Misc(String name, ImageIcon icon) {
-        super(name, icon);
+    public Misc(String name, String iconPath) {
+        super(name, iconPath);
     }
 }
