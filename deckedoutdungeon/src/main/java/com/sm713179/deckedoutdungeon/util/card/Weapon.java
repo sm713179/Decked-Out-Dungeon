@@ -10,31 +10,38 @@ package com.sm713179.deckedoutdungeon.util.card;
  */
 public class Weapon extends Card {
     int durability;
-    int baseDurability;
+    int maxDurability;
 
     public Weapon(int durability, int baseDurability, String name, String iconPath) {
         super(name, iconPath);
         this.durability = durability;
-        this.baseDurability = baseDurability;
+        this.maxDurability = baseDurability;
     }
 
     public int getDurability() {
         return durability;
     }
 
-    public int getBaseDurability() {
-        return baseDurability;
+    public int getMaxDurability() {
+        return maxDurability;
     }
 
     public void setDurability(int durability) {
         this.durability = durability;
     }
 
-    public void setBaseDurability(int baseDurability) {
-        this.baseDurability = baseDurability;
+    public void setMaxDurability(int maxDurability) {
+        this.maxDurability = maxDurability;
     }
     
     public void restoreDurability() {
-        durability = baseDurability;
+        durability = maxDurability;
+    }
+    
+    public void repair(int value) {
+        durability = durability + value;
+        if (durability > maxDurability) {
+            durability = maxDurability;
+        }
     }
 }

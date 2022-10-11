@@ -4,6 +4,8 @@
  */
 package com.sm713179.deckedoutdungeon.util.card;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 /**
  *
  * @author Samuel McClatchey
@@ -32,5 +34,9 @@ public class Item extends Card {
 
     public void setValue(int value) {
         this.value = value;
+    }
+    
+    public void getRandomValue() {
+        value = ThreadLocalRandom.current().nextInt(2, 5);
     }
 }

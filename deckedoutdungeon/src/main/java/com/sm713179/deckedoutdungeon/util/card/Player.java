@@ -43,4 +43,27 @@ public class Player extends Card {
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
     }
+    
+    public void heal(int value) {
+        hp = hp + value;
+        if (hp > maxHp) {
+            hp = maxHp;
+        }
+    }
+    
+    public void dmg(int value) {
+        hp = hp - value;
+    }
+    
+    public boolean isDead() {
+        if (hp < 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public void repairWeapon(int value) {
+        weapon.repair(value);
+    }
 }
