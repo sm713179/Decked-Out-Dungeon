@@ -42,8 +42,8 @@ public class Trap extends Card {
         this.isActive = isActive;
     }
 
-    public void setInactiveIcon(ImageIcon inactiveIcon) {
-        this.inactiveIcon = inactiveIcon;
+    public void setInactiveIcon(String inactiveIconPath) {
+        this.inactiveIcon = new ImageIcon("src/main/java/com/sm713179/deckedoutdungeon/asset/icon/trap/inactive/" + inactiveIconPath);
     }
     
     public void toggleActive() {

@@ -31,7 +31,7 @@ public abstract class Card {
         this.name = name;
     }
 
-    public void setIcon(ImageIcon icon) {
-        this.icon = icon;
+    public void setIcon(String iconPath) {
+        this.icon = new ImageIcon("src/main/java/com/sm713179/deckedoutdungeon/asset/icon/" + iconPath);
     }
 }
