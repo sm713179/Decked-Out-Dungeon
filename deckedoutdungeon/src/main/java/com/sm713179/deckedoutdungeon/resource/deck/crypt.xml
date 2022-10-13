@@ -72,7 +72,7 @@
 	</card>
 	<card>
 		<type>Item</type>
-		<count>4</count>
+		<count>3</count>
 		<name>Health Potion</name>
 		<icon>misc/emptyTile.png</icon>
 		<itemType>HEAL</itemType>

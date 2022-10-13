@@ -7,6 +7,7 @@ package com.sm713179.deckedoutdungeon;
 
 import com.sm713179.deckedoutdungeon.util.card.*;
 import com.sm713179.deckedoutdungeon.util.deck.*;
+import com.sm713179.deckedoutdungeon.util.frame.Frame;
 import java.util.ListIterator;
 
 /**
@@ -18,15 +19,18 @@ public class Main {
     public static void main(String[] args) {
         DeckBuilder deckBuilder = new DeckBuilder();
         Deck deck = deckBuilder.buildDeck("crypt.xml");
-        
-        Card card = deck.draw();
-        System.out.println(card.getName());
+        Frame frame = new Frame();
+        String text = "<html>";
         
         ListIterator<Card> deckIterator = deck.getDeck().listIterator();
         int num = 1;
         while (deckIterator.hasNext()) {
-            System.out.println(num + ". " + deckIterator.next().getName());
+            text += num + ". " + deckIterator.next().getName() + "<br/>";
             num++;
         }
+        
+        text += "</html>";
+        frame.addTxt(text);
+        frame.displayFrame();
     }
 }
