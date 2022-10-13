@@ -9,8 +9,7 @@ package com.sm713179.deckedoutdungeon.util.card;
  * @author Samuel McClatchey
  */
 public class Weapon extends Card {
-    int durability;
-    int maxDurability;
+    int durability, maxDurability;
 
     public Weapon(int durability, int baseDurability, String name, String iconPath) {
         super(name, iconPath);
@@ -39,7 +38,7 @@ public class Weapon extends Card {
     }
     
     public void repair(int value) {
-        durability = durability + value;
+        durability += value;
         if (durability > maxDurability) {
             durability = maxDurability;
         }

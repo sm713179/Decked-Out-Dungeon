@@ -9,8 +9,7 @@ package com.sm713179.deckedoutdungeon.util.card;
  * @author Samuel McClatchey
  */
 public class Player extends Card {
-    int hp;
-    int maxHp;
+    int hp, maxHp;
     Weapon weapon;
 
     public Player(int hp, int maxHp, Weapon weapon, String name, String iconPath) {
@@ -45,7 +44,7 @@ public class Player extends Card {
     }
     
     public void heal(int value) {
-        hp = hp + value;
+        hp += value;
         if (hp > maxHp) {
             hp = maxHp;
         }

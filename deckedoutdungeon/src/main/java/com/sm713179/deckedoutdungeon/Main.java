@@ -6,7 +6,8 @@
 package com.sm713179.deckedoutdungeon;
 
 import com.sm713179.deckedoutdungeon.util.card.*;
-import javax.swing.ImageIcon;
+import com.sm713179.deckedoutdungeon.util.deck.*;
+import java.util.ListIterator;
 
 /**
  *
@@ -15,10 +16,17 @@ import javax.swing.ImageIcon;
 public class Main {
 
     public static void main(String[] args) {
+        DeckBuilder deckBuilder = new DeckBuilder();
+        Deck deck = deckBuilder.buildDeck("crypt.xml");
         
-            Misc card = new Misc("Empty Space", "misc/emptyTile.png");
-            System.out.println(card.getName());
-            System.out.println(card.getIcon().getIconHeight());
-            System.out.println(System.getProperty("user.dir"));
+        Card card = deck.draw();
+        System.out.println(card.getName());
+        
+        ListIterator<Card> deckIterator = deck.getDeck().listIterator();
+        int num = 1;
+        while (deckIterator.hasNext()) {
+            System.out.println(num + ". " + deckIterator.next().getName());
+            num++;
+        }
     }
 }

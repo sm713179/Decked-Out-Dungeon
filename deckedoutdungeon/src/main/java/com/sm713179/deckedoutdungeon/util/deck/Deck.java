@@ -15,10 +15,8 @@ import java.util.Stack;
 public class Deck {
     Stack<Card> deck;
     
-    public Deck() {}
-
-    public Deck(Stack<Card> deck) {
-        this.deck = deck;
+    public Deck() {
+        this.deck = new Stack<Card>();
     }
 
     public Stack<Card> getDeck() {

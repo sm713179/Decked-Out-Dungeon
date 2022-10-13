@@ -9,8 +9,7 @@ package com.sm713179.deckedoutdungeon.util.card;
  * @author Samuel McClatchey
  */
 public class Mob extends Card {
-    int hp;
-    int baseHp;
+    int hp, baseHp;
 
     public Mob(int hp, int baseHp, String name, String iconPath) {
         super(name, iconPath);
