@@ -24,11 +24,7 @@ public class Frame {
     JPanel mainPnl = new JPanel();
     GridBagConstraints gbc = new GridBagConstraints();
 
-    //Getters & Setters
-    public JPanel getMainPnl() {
-        return mainPnl;
-    }
-    
+    //Setters
     public void setMainPnl(LayoutManager layout) {
         mainPnl.setLayout(layout);
     }
@@ -81,7 +77,7 @@ public class Frame {
     
     /*
     Buttons 
-    Action is always at end to make writing the ActionListener easier
+    Action is always at end to make writing ActionListener easier
     */
     public void addBtn(String txt, String tip, ActionListener action) {
         JButton btn = new JButton(txt);
