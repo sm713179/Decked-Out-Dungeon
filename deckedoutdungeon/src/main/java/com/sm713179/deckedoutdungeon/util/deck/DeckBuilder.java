@@ -18,7 +18,7 @@ import org.xml.sax.SAXException;
  */
 public class DeckBuilder {
     
-    public Deck buildDeck(String deckPath) {
+    public static Deck buildDeck(String deckPath) {
         Deck deck = new Deck();
         
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();

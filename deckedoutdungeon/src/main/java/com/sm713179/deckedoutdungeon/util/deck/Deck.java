@@ -13,12 +13,8 @@ import java.util.Stack;
  * @author Samuel McClatchey
  */
 public class Deck {
-    Stack<Card> deck;
+    Stack<Card> deck = new Stack<Card>();
     
-    public Deck() {
-        this.deck = new Stack<Card>();
-    }
-
     public Stack<Card> getDeck() {
         return deck;
     }
