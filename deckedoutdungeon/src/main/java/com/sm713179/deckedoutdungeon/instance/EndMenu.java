@@ -9,7 +9,6 @@ import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.Box;
 import javax.swing.JPanel;
 
 /**
@@ -33,7 +32,7 @@ public class EndMenu {
                 Game.createInstance(frame);
             }
         });
-        pnl.add(Box.createHorizontalStrut(28));
+        frame.addLbl("<html><h2 style='font-size:4em;'>&nbsp;</h2></html>", pnl);
         frame.addBtn("<html><h2 style='font-size:4em;'>&#10060;Quit Game</h2></html>", "Exit to desktop", pnl, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
