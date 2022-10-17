@@ -20,7 +20,7 @@ public class StartMenu {
     public static void createInstance(Frame frame) {
         frame.reset();
         
-        int highscore = 69; //get from txt file
+        int highScore = 69; //get from txt file
         
         frame.setMainPnl(new GridBagLayout());
         JPanel pnl = new JPanel(new FlowLayout());
@@ -40,7 +40,7 @@ public class StartMenu {
             }
         });
         frame.addPnl(pnl, 0, 1);
-        frame.addLbl("<html><h2 style='font-size:6em;'>Highscore: " + highscore + "</h2></html>", 0, 2);
+        frame.addLbl("<html><h2 style='font-size:6em;'>High Score: " + highScore + "</h2></html>", 0, 2);
         
         frame.display();
     }
