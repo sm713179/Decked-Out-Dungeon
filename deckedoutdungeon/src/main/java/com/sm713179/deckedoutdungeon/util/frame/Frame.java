@@ -79,8 +79,10 @@ public class Frame {
         pnl.add(lbl, gbc);
     }
     
-    
-    //Buttons 
+    /*
+    Buttons 
+    Action is always at end to make writing the ActionListener easier
+    */
     public void addBtn(String txt, String tip, ActionListener action) {
         JButton btn = new JButton(txt);
         btn.setToolTipText(tip);
