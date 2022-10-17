@@ -21,7 +21,7 @@ public class StartMenu {
     public static void createInstance(Frame frame) {
         frame.reset();
         
-        String highscore = "69"; //get from txt file
+        int highscore = 69; //get from txt file
         
         frame.setMainPnl(new GridBagLayout());
         JPanel pnl = new JPanel(new FlowLayout());
