@@ -8,6 +8,8 @@ import com.sm713179.deckedoutdungeon.util.card.Card;
 import com.sm713179.deckedoutdungeon.util.deck.Deck;
 import com.sm713179.deckedoutdungeon.util.deck.DeckBuilder;
 import com.sm713179.deckedoutdungeon.util.frame.Frame;
+import com.sm713179.deckedoutdungeon.util.grid.CardGrid;
+import static java.awt.SystemColor.text;
 import java.util.ListIterator;
 
 /**
@@ -20,17 +22,21 @@ public class Game {
         frame.reset();
         
         Deck deck = DeckBuilder.buildDeck("crypt.xml");
-        String text = "<html>";
+        int rows = 3;
+        int cols = 4;
+        CardGrid cardGrid = new CardGrid(deck, 3, 4);
         
-        ListIterator<Card> deckIterator = deck.getDeck().listIterator();
-        int num = 1;
-        while (deckIterator.hasNext()) {
-            text += num + ". " + deckIterator.next().getName() + "<br/>";
-            num++;
+        System.out.println(rows + ", " + cols);
+        
+        for (int x = 0; x < rows; x++) {
+            String msg = "";
+            for (int y = 0; y < cols; y++) {
+                msg += cardGrid.getCard(x, y).getName() + ", ";
+            }
+            System.out.println(msg);
         }
         
-        text += "</html>";
-        frame.addLbl(text);
+        //System.out.println(deck.getDeck().toArray().length);
         
         frame.display();
     }

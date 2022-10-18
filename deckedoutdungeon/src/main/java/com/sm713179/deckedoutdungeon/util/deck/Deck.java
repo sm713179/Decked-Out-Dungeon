@@ -15,14 +15,6 @@ import java.util.Stack;
 public class Deck {
     Stack<Card> deck = new Stack<Card>();
     
-    public Stack<Card> getDeck() {
-        return deck;
-    }
-
-    public void setDeck(Stack<Card> deck) {
-        this.deck = deck;
-    }
-    
     public void shuffle() {
         Collections.shuffle(deck);
     }
