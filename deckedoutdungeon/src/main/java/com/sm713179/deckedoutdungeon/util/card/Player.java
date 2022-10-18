@@ -18,6 +18,13 @@ public class Player extends Card {
         this.maxHp = maxHp;
         this.weapon = weapon;
     }
+    
+    //Temporary
+    public Player(int hp, int maxHp, String name, String iconPath) {
+        super(name, iconPath);
+        this.hp = hp;
+        this.maxHp = maxHp;
+    }
 
     public int getHp() {
         return hp;

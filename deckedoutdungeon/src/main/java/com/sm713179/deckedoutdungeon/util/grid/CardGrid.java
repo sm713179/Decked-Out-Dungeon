@@ -5,6 +5,7 @@
 package com.sm713179.deckedoutdungeon.util.grid;
 
 import com.sm713179.deckedoutdungeon.util.card.Card;
+import com.sm713179.deckedoutdungeon.util.card.Player;
 import com.sm713179.deckedoutdungeon.util.deck.Deck;
 
 /**
@@ -13,18 +14,43 @@ import com.sm713179.deckedoutdungeon.util.deck.Deck;
  */
 public class CardGrid {
     Card[][] cardGrid;
+    int rows;
+    int cols;
 
-    public CardGrid(Deck deck, int rows, int cols) {
+    public CardGrid(Deck deck, Player player, int rows, int cols) {
         cardGrid = new Card[rows][cols];
+        this.rows = rows;
+        this.cols = cols;
         
+        spawnPlayer(player);
+        populate(deck);
+    }
+    
+    public final void populate(Deck deck) {
         for (int x = 0; x < rows; x++) { 
             for(int y = 0; y < cols; y++) {
-                cardGrid[x][y] = deck.draw();
+                if (cardGrid[x][y] == null) {
+                    cardGrid[x][y] = deck.draw();
+                } else if (!cardGrid[x][y].isType("Player")) { //repopulate
+                    deck.bury(cardGrid[x][y]);
+                    cardGrid[x][y] = deck.draw();
+                }
             }
         }
     }
     
+    public final void spawnPlayer(Player player) {
+        int row = rows / 2;
+        int col = (cols - 1) / 2;
+        
+        cardGrid[row][col] = player;
+    }
+    
     public Card getCard(int row, int col) {
         return cardGrid[row][col];
+    }
+    
+    public void setCard(int row, int col, Card card) {
+        cardGrid[row][col] = card;
     }
 }

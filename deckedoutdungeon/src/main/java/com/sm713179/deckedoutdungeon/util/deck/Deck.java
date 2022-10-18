@@ -13,7 +13,7 @@ import java.util.Stack;
  * @author Samuel McClatchey
  */
 public class Deck {
-    Stack<Card> deck = new Stack<Card>();
+    Stack<Card> deck = new Stack<>();
     
     public void shuffle() {
         Collections.shuffle(deck);

@@ -4,13 +4,10 @@
  */
 package com.sm713179.deckedoutdungeon.instance;
 
-import com.sm713179.deckedoutdungeon.util.card.Card;
-import com.sm713179.deckedoutdungeon.util.deck.Deck;
-import com.sm713179.deckedoutdungeon.util.deck.DeckBuilder;
+import com.sm713179.deckedoutdungeon.util.card.Player;
+import com.sm713179.deckedoutdungeon.util.deck.*;
 import com.sm713179.deckedoutdungeon.util.frame.Frame;
 import com.sm713179.deckedoutdungeon.util.grid.CardGrid;
-import static java.awt.SystemColor.text;
-import java.util.ListIterator;
 
 /**
  *
@@ -22,11 +19,11 @@ public class Game {
         frame.reset();
         
         Deck deck = DeckBuilder.buildDeck("crypt.xml");
+        //Create shortsword
+        Player player = new Player(10, 12, "Player", "misc/emptyTile.png");
         int rows = 3;
         int cols = 4;
-        CardGrid cardGrid = new CardGrid(deck, 3, 4);
-        
-        System.out.println(rows + ", " + cols);
+        CardGrid cardGrid = new CardGrid(deck, player, rows, cols);
         
         for (int x = 0; x < rows; x++) {
             String msg = "";
@@ -35,8 +32,6 @@ public class Game {
             }
             System.out.println(msg);
         }
-        
-        //System.out.println(deck.getDeck().toArray().length);
         
         frame.display();
     }

@@ -34,4 +34,9 @@ public abstract class Card {
     public void setIcon(String iconPath) {
         this.icon = new ImageIcon("src/main/java/com/sm713179/deckedoutdungeon/asset/icon/" + iconPath);
     }
+    
+    public boolean isType(String type) {
+        type = "class com.sm713179.deckedoutdungeon.util.card." + type;
+        return type.equals(this.getClass().toString());
+    }
 }
