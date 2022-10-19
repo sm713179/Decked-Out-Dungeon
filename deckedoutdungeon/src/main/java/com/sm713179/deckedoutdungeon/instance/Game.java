@@ -21,9 +21,16 @@ public class Game {
         Deck deck = DeckBuilder.buildDeck("crypt.xml");
         //Create shortsword
         Player player = new Player(10, 12, "Player", "misc/emptyTile.png");
-        int rows = 3;
-        int cols = 4;
-        CardGrid cardGrid = new CardGrid(deck, player, rows, cols);
+        CardGrid cardGrid = new CardGrid(deck, player, 3, 4);
+        
+        displayGrid(frame, cardGrid);
+        
+        frame.display();
+    }
+    
+    public static void displayGrid(Frame frame, CardGrid cardGrid) {
+        int rows = cardGrid.getRows();
+        int cols = cardGrid.getCols();
         
         for (int x = 0; x < rows; x++) {
             String msg = "";
@@ -32,7 +39,5 @@ public class Game {
             }
             System.out.println(msg);
         }
-        
-        frame.display();
     }
 }

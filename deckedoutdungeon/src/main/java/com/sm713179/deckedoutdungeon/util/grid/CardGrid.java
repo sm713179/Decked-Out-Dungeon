@@ -25,6 +25,21 @@ public class CardGrid {
         spawnPlayer(player);
         populate(deck);
     }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public int getCols() {
+        return cols;
+    }
+    
+    public final void spawnPlayer(Player player) {
+        int row = rows / 2;
+        int col = (cols - 1) / 2;
+        
+        cardGrid[row][col] = player;
+    } 
     
     public final void populate(Deck deck) {
         for (int x = 0; x < rows; x++) { 
@@ -37,13 +52,6 @@ public class CardGrid {
                 }
             }
         }
-    }
-    
-    public final void spawnPlayer(Player player) {
-        int row = rows / 2;
-        int col = (cols - 1) / 2;
-        
-        cardGrid[row][col] = player;
     }
     
     public Card getCard(int row, int col) {
