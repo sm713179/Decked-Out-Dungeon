@@ -26,6 +26,10 @@ public class CardGrid {
         populate(deck);
     }
 
+    public Card[][] getCardGrid() {
+        return cardGrid;
+    }
+
     public int getRows() {
         return rows;
     }

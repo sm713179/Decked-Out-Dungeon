@@ -2,7 +2,7 @@
 	<card>
 		<type>Weapon</type>
 		<count>1</count>
-		<name>Bone Shiv</name>
+		<name>Shiv</name>
 		<icon>misc/emptyTile.png</icon>
 		<durability>3</durability>
 	</card>
