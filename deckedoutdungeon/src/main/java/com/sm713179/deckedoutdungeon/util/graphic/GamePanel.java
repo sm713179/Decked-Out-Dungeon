@@ -36,10 +36,8 @@ public class GamePanel {
         status = "<html><h3 style='font-size:2em;'><span style='color:Green'>&#11014;</span>Level: " + player.getLevel()
                 + "<br />" + "<span style='color:Red'>&#9829;</span>HP: " + player.getHp() + "/" + player.getMaxHp() + "</h3></html>";
         frame.addLbl(status, pnl, 0, 0);
-        
         status = "<html><h3 style='font-size:2em;'><pre>     </pre><h3></html>";
         frame.addLbl(status, pnl, 1, 0);
-        
         status = "<html><h3 style='font-size:2em;'><span style='color:#FFD700'>&#9899;</span>Score: " + player.getScore()
                 + "<br />" + "<span style='color:#708090'>&#9876;</span>Weapon: ";
         
@@ -52,14 +50,12 @@ public class GamePanel {
         
         status += "</h3></html>";
         frame.addLbl(status, pnl, 2, 0);
-        
         status = "<html><h2 style='font-size:2.5em;'>Status</h2></html>";
         
         Border border = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(
                 Color.black, 4, true), status);
         Border margin = new EmptyBorder(8, 8, 8, 8);
         pnl.setBorder(new CompoundBorder(border, margin));
-        
         frame.addPnl(pnl, 0, 0);
     }
     

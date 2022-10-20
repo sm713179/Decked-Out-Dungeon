@@ -31,19 +31,13 @@ public class MenuPanel {
         
         frame.addLbl("<html><h1 style='font-size:8em;'>" + head + "</hl></html>", 0, 0);
         frame.addBtn("<html><h2 style='font-size:4em;'>" + btnTxt + "</h2></html>", 
-                "Start a new game", pnl, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Game.createInstance(frame);
-            }
+                "Start a new game", pnl, (ActionEvent e) -> {
+                    Game.createInstance(frame);
         });
         frame.addLbl("<html><h2 style='font-size:4em;'>&nbsp;</h2></html>", pnl);
         frame.addBtn("<html><h2 style='font-size:4em;'>&#10060;Quit Game</h2></html>", 
-                "Exit to desktop", pnl, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
+                "Exit to desktop", pnl, (ActionEvent e) -> {
+                    System.exit(0);
         });
         frame.addPnl(pnl, 0, 1);
         frame.addLbl("<html><h2 style='font-size:4em;'>High Score: " + highScore

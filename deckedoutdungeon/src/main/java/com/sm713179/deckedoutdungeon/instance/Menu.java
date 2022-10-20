@@ -14,9 +14,7 @@ import com.sm713179.deckedoutdungeon.util.graphic.MenuPanel;
 public class Menu {
     
     public static void createInstance(Frame frame, boolean isGameOver, int latesScore) {
-        
-        int highScore = 69; //read frp, txt
-        
+        int highScore = 69; //read from txt
         MenuPanel.display(frame, isGameOver, highScore, latesScore);
     }
 }
