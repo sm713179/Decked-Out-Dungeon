@@ -34,7 +34,7 @@ public abstract class Card {
 
     public void setIcon(String iconPath) {
         this.icon = new ImageIcon(
-                "src/main/java/com/sm713179/deckedoutdungeon/asset/icon/" + iconPath);
+                "src/main/java/com/sm713179/deckedoutdungeon/resource/icon/" + iconPath);
     }
     
     public boolean isType(String cardType) {
