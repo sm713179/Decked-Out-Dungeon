@@ -7,7 +7,6 @@ package com.sm713179.deckedoutdungeon.instance;
 import com.sm713179.deckedoutdungeon.util.card.*;
 import com.sm713179.deckedoutdungeon.util.card.collection.*;
 import com.sm713179.deckedoutdungeon.util.graphic.Frame;
-import com.sm713179.deckedoutdungeon.util.stat.Status;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
@@ -28,34 +27,34 @@ public class Game {
         Deck deck = DeckBuilder.buildDeck("crypt.xml");
         //Create default weapon
         Player player = new Player(10, 12, null, "Player", "misc/emptyTile.png");
-        Status stats = new Status(player);
         CardGrid cardGrid = new CardGrid(deck, player, 3, 4);
         
-        frame.setMainPnl(new GridBagLayout());
-        displayGame(frame, stats, cardGrid);
+        displayGame(frame, player, cardGrid);
     }
     
     //Put display stuff in separate method?
-    public static void displayGame(Frame frame, Status stats, CardGrid cardGrid) {
+    public static void displayGame(Frame frame, Player player, CardGrid cardGrid) {
         frame.reset();
+        frame.setMainPnl(new GridBagLayout());
         
-        displayStats(frame, stats);
+        displayStats(frame, player);
         displayGrid(frame, cardGrid);
         displayLog(frame); //Nothing yet
         
         frame.display();
     }
     
-    public static void displayStats(Frame frame, Status status) {
+    public static void displayStats(Frame frame, Player player) {
         JPanel pnl = new JPanel(new GridBagLayout());
+        String[] status = player.getStatus();
         
-        String stats = "<html><h3 style='font-size:2em;'>" + status.getLevel()
-                + "<br />" + status.getHp() + "</h3></html>";
+        String stats = "<html><h3 style='font-size:2em;'>" + status[0]
+                + "<br />" + status[1] + "</h3></html>";
         frame.addLbl(stats, pnl, 0, 0);
         stats = "<html><h3 style='font-size:2em;'><pre>     </pre><h3></html>";
         frame.addLbl(stats, pnl, 1, 0);
-        stats = "<html><h3 style='font-size:2em;'>" + status.getScore()
-                + "<br />" + status.getWeapon() + "</h3></html>";
+        stats = "<html><h3 style='font-size:2em;'>" + status[2]
+                + "<br />" + status[3] + "</h3></html>";
         frame.addLbl(stats, pnl, 2, 0);
         
         Border border = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black, 4, true),
