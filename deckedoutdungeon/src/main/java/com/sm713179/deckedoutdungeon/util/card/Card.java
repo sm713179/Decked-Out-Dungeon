@@ -16,7 +16,8 @@ public abstract class Card {
 
     public Card(String name, String iconPath) {
         this.name = name;
-        this.icon = new ImageIcon("src/main/java/com/sm713179/deckedoutdungeon/resource/icon/" + iconPath);
+        this.icon = new ImageIcon(
+                "src/main/java/com/sm713179/deckedoutdungeon/resource/icon/" + iconPath);
     }
 
     public String getName() {
@@ -32,11 +33,12 @@ public abstract class Card {
     }
 
     public void setIcon(String iconPath) {
-        this.icon = new ImageIcon("src/main/java/com/sm713179/deckedoutdungeon/asset/icon/" + iconPath);
+        this.icon = new ImageIcon(
+                "src/main/java/com/sm713179/deckedoutdungeon/asset/icon/" + iconPath);
     }
     
-    public boolean isType(String type) {
-        type = "class com.sm713179.deckedoutdungeon.util.card." + type;
-        return type.equals(this.getClass().toString());
+    public boolean isType(String cardType) {
+        cardType = "class com.sm713179.deckedoutdungeon.util.card." + cardType;
+        return cardType.equals(this.getClass().toString());
     }
 }

@@ -11,25 +11,25 @@ import java.util.concurrent.ThreadLocalRandom;
  * @author Samuel McClatchey
  */
 public class Item extends Card {
-    ItemType type;
+    ItemType itemType;
     int value;
 
-    public Item(ItemType type, int value, String name, String iconPath) {
+    public Item(ItemType itemType, int value, String name, String iconPath) {
         super(name, iconPath);
-        this.type = type;
+        this.itemType = itemType;
         this.value = value;
     }
 
-    public ItemType getType() {
-        return type;
+    public ItemType getItemType() {
+        return itemType;
     }
 
     public int getValue() {
         return value;
     }
 
-    public void setType(ItemType type) {
-        this.type = type;
+    public void setItemType(ItemType itemType) {
+        this.itemType = itemType;
     }
 
     public void setValue(int value) {
