@@ -72,16 +72,21 @@ public class Player extends Card {
     public String[] getStatus() {
         String[] status = new String[4];
         
-        status[0] = "<span style='color:Green'>&#11014;</span>Level: " + level;
-        status[1] = "<span style='color:Red'>&#9829;</span>HP: " + hp + "/" + maxHp;
-        status[2] = "<span style='color:#FFD700'>&#9899;</span>Score: " + score;
-        
-        status[3] = "<span style='color:#708090'>&#9876;</span>Weapon: ";
+        status[0] = "<html><h3 style='font-size:2em;'><span style='color:Green'>&#11014;</span>Level: " + level
+                + "<br />" + "<span style='color:Red'>&#9829;</span>HP: " + hp + "/" + maxHp + "</h3></html>";
+        status[1] = "<html><h3 style='font-size:2em;'><pre>     </pre><h3></html>";
+        status[2] = "<html><h3 style='font-size:2em;'><span style='color:#FFD700'>&#9899;</span>Score: " + score
+                + "<br />" + "<span style='color:#708090'>&#9876;</span>Weapon: ";
+
         if (weapon == null) {
-            status[3] += "None";
+            status[2] += "None";
         } else {
-            status[3] += weapon.getDurability() + "/" + weapon.getMaxDurability() + " (" + weapon.getName() + ")";
+            status[2] += weapon.getDurability() + "/" + weapon.getMaxDurability()
+                    + " (" + weapon.getName() + ")";
         }
+        
+        status[2] += "</h3></html>";
+        status[3] = "<html><h2 style='font-size:2.5em;'>Status</h2></html>";
         
         return status;
     }

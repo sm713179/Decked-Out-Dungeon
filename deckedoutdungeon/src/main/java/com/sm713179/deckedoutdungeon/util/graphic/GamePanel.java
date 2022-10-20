@@ -33,17 +33,12 @@ public class GamePanel {
         JPanel pnl = new JPanel(new GridBagLayout());
         String[] status = player.getStatus();
         
-        String stats = "<html><h3 style='font-size:2em;'>" + status[0]
-                + "<br />" + status[1] + "</h3></html>";
-        frame.addLbl(stats, pnl, 0, 0);
-        stats = "<html><h3 style='font-size:2em;'><pre>     </pre><h3></html>";
-        frame.addLbl(stats, pnl, 1, 0);
-        stats = "<html><h3 style='font-size:2em;'>" + status[2]
-                + "<br />" + status[3] + "</h3></html>";
-        frame.addLbl(stats, pnl, 2, 0);
+        frame.addLbl(status[0], pnl, 0, 0);
+        frame.addLbl(status[1], pnl, 1, 0);
+        frame.addLbl(status[2], pnl, 2, 0);
         
-        Border border = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black, 4, true),
-                "<html><h2 style='font-size:2.5em;'>Status</h2></html>");
+        Border border = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(
+                Color.black, 4, true), status[3]);
         Border margin = new EmptyBorder(8, 8, 8, 8);
         pnl.setBorder(new CompoundBorder(border, margin));
         
