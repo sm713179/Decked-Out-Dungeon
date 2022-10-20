@@ -5,7 +5,7 @@
 
 package com.sm713179.deckedoutdungeon;
 
-import com.sm713179.deckedoutdungeon.instance.StartMenu;
+import com.sm713179.deckedoutdungeon.instance.MainMenu;
 import com.sm713179.deckedoutdungeon.util.graphic.Frame;
 
 /**
@@ -16,6 +16,6 @@ public class Main {
 
     public static void main(String[] args) {
         Frame frame = new Frame();
-        StartMenu.createInstance(frame);
+        MainMenu.createInstance(frame);
     }
 }
