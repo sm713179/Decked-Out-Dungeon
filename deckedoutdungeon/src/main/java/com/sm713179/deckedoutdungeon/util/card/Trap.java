@@ -19,7 +19,7 @@ public class Trap extends Card {
         super(name, iconPath);
         this.dmg = dmg;
         this.isActive = isActive;
-        this.inactiveIcon = new ImageIcon("src/main/java/com/sm713179/deckedoutdungeon/asset/icon/trap/inactive/" + inactiveIconPath);
+        this.inactiveIcon = new ImageIcon("src/main/java/com/sm713179/deckedoutdungeon/resource/icon/trap/inactive/" + inactiveIconPath);
     }
 
     public int getDmg() {
