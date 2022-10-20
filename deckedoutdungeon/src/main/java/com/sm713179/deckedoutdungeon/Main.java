@@ -16,6 +16,6 @@ public class Main {
 
     public static void main(String[] args) {
         Frame frame = new Frame();
-        Menu.createInstance(frame);
+        Menu.createInstance(frame, false, 0);
     }
 }
