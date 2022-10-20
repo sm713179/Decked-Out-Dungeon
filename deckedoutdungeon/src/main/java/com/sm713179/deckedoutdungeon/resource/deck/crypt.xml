@@ -2,7 +2,7 @@
 	<card>
 		<type>Weapon</type>
 		<count>1</count>
-		<name>Shiv</name>
+		<name>Knife</name>
 		<icon>misc/emptyTile.png</icon>
 		<durability>3</durability>
 	</card>
@@ -22,14 +22,14 @@
 	<card>
 		<type>Weapon</type>
 		<count>3</count>
-		<name>Dagger</name>
+		<name>Sword</name>
 		<icon>misc/emptyTile.png</icon>
 		<durability>3</durability>
 	</card>
 	<card>
 		<type>Weapon</type>
 		<count>1</count>
-		<name>Sword</name>
+		<name>Hammer</name>
 		<icon>misc/emptyTile.png</icon>
 		<durability>4</durability>
 	</card>
