@@ -15,7 +15,7 @@ import javax.swing.JPanel;
  *
  * @author Samuel McClatchey
  */
-public class MainMenu {
+public class Menu {
     
     public static void createInstance(Frame frame) {
         frame.reset();
