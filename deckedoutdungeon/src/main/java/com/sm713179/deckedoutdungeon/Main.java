@@ -6,7 +6,7 @@
 package com.sm713179.deckedoutdungeon;
 
 import com.sm713179.deckedoutdungeon.instance.StartMenu;
-import com.sm713179.deckedoutdungeon.util.frame.Frame;
+import com.sm713179.deckedoutdungeon.util.graphic.Frame;
 
 /**
  *

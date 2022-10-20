@@ -5,9 +5,8 @@
 package com.sm713179.deckedoutdungeon.instance;
 
 import com.sm713179.deckedoutdungeon.util.card.*;
-import com.sm713179.deckedoutdungeon.util.deck.*;
-import com.sm713179.deckedoutdungeon.util.frame.Frame;
-import com.sm713179.deckedoutdungeon.util.grid.CardGrid;
+import com.sm713179.deckedoutdungeon.util.card.collection.*;
+import com.sm713179.deckedoutdungeon.util.graphic.Frame;
 import com.sm713179.deckedoutdungeon.util.stat.Status;
 import java.awt.Color;
 import java.awt.FlowLayout;

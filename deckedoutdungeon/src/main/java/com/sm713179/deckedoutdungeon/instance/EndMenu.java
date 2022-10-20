@@ -4,7 +4,7 @@
  */
 package com.sm713179.deckedoutdungeon.instance;
 
-import com.sm713179.deckedoutdungeon.util.frame.Frame;
+import com.sm713179.deckedoutdungeon.util.graphic.Frame;
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
