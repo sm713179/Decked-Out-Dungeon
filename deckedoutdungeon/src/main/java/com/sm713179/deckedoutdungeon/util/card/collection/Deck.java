@@ -5,7 +5,6 @@
 package com.sm713179.deckedoutdungeon.util.card.collection;
 
 import com.sm713179.deckedoutdungeon.util.card.Card;
-import java.io.Serializable;
 import java.util.Collections;
 import java.util.Stack;
 
@@ -13,19 +12,8 @@ import java.util.Stack;
  *
  * @author Samuel McClatchey
  */
-public class Deck implements Serializable {
+public class Deck {
     Stack<Card> deck = new Stack<>();
-
-    //Boilerplate
-    public Deck() {}
-
-    public Stack<Card> getDeck() {
-        return deck;
-    }
-
-    public void setDeck(Stack<Card> deck) {
-        this.deck = deck;
-    }
     
     //Methods
     public void shuffle() {

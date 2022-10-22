@@ -15,8 +15,6 @@ public class Item extends Card {
     int value;
 
     //Boilerplate
-    public Item() {}
-
     public Item(ItemType itemType, int value, String name, String iconPath) {
         super(name, iconPath);
         this.itemType = itemType;

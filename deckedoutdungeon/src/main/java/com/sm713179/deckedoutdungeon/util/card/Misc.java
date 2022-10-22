@@ -11,8 +11,6 @@ package com.sm713179.deckedoutdungeon.util.card;
 public class Misc extends Card {
 
     //Boilerplate
-    public Misc() {}
-    
     public Misc(String name, String iconPath) {
         super(name, iconPath);
     }

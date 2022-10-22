@@ -13,8 +13,6 @@ public class Player extends Card {
     Weapon weapon;
 
     //Boilerplate
-    public Player() {}
-
     public Player(int hp, int maxHp, Weapon weapon, String name, String iconPath) {
         super(name, iconPath);
         this.hp = hp;

@@ -16,8 +16,6 @@ public class Trap extends Card {
     ImageIcon inactiveIcon;
 
     //Boilerplate
-    public Trap() {}
-
     public Trap(int dmg, boolean isActive, String inactiveIconPath, String name, String iconPath) {
         super(name, iconPath);
         this.dmg = dmg;

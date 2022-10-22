@@ -12,8 +12,6 @@ public class Mob extends Card {
     int hp, baseHp;
 
     //Boilerplate
-    public Mob() {}
-    
     public Mob(int hp, int baseHp, String name, String iconPath) {
         super(name, iconPath);
         this.hp = hp;

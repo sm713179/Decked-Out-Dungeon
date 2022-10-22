@@ -6,19 +6,16 @@ package com.sm713179.deckedoutdungeon.util.card.collection;
 
 import com.sm713179.deckedoutdungeon.util.card.Card;
 import com.sm713179.deckedoutdungeon.util.card.Player;
-import java.io.Serializable;
 
 /**
  *
  * @author Samuel McClatchey
  */
-public class CardGrid implements Serializable {
+public class CardGrid {
     Card[][] cardGrid;
     int rows, cols;
 
     //Boilerplate
-    public CardGrid() {}
-    
     public CardGrid(Deck deck, Player player, int rows, int cols) {
         cardGrid = new Card[rows][cols];
         this.rows = rows;
@@ -38,18 +35,6 @@ public class CardGrid implements Serializable {
 
     public int getCols() {
         return cols;
-    }
-
-    public void setCardGrid(Card[][] cardGrid) {
-        this.cardGrid = cardGrid;
-    }
-
-    public void setRows(int rows) {
-        this.rows = rows;
-    }
-
-    public void setCols(int cols) {
-        this.cols = cols;
     }
     
     //Methods

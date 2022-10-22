@@ -6,43 +6,20 @@ package com.sm713179.deckedoutdungeon.util.graphic;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.io.Serializable;
 import javax.swing.*;
 
 /**
  *
  * @author Samuel McClatchey
  */
-public class Frame implements Serializable {
+public class Frame {
     JFrame frame = new JFrame("Decked Out Dungeon");
     JPanel mainPnl = new JPanel();
     GridBagConstraints gbc = new GridBagConstraints();
 
     //Boilerplate
-    public Frame() {}
-
-    public JFrame getFrame() {
-        return frame;
-    }
-
-    public JPanel getMainPnl() {
-        return mainPnl;
-    }
-
-    public GridBagConstraints getGbc() {
-        return gbc;
-    }
-
-    public void setFrame(JFrame frame) {
-        this.frame = frame;
-    }
-
     public void setMainPnl(LayoutManager layout) {
         mainPnl.setLayout(layout);
-    }
-
-    public void setGbc(GridBagConstraints gbc) {
-        this.gbc = gbc;
     }
     
     /*

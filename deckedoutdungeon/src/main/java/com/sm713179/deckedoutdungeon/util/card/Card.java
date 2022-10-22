@@ -15,8 +15,6 @@ public abstract class Card {
     ImageIcon icon;
 
     //Boilerplate
-    public Card() {}
-
     public Card(String name, String iconPath) {
         this.name = name;
         this.icon = new ImageIcon(
