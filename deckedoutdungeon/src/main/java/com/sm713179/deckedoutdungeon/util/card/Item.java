@@ -28,14 +28,6 @@ public class Item extends Card {
     public int getValue() {
         return value;
     }
-
-    public void setItemType(ItemType itemType) {
-        this.itemType = itemType;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
     
     @Override
     public String getCardType() {

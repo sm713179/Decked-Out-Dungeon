@@ -16,16 +16,27 @@ public class Frame {
     JFrame frame = new JFrame("Decked Out Dungeon");
     JPanel mainPnl = new JPanel();
     GridBagConstraints gbc = new GridBagConstraints();
+    
+    //Frame
+    public void display() {
+        Dimension resolution = Toolkit.getDefaultToolkit().getScreenSize();
+        frame.add(mainPnl, BorderLayout.CENTER);
+        frame.setSize(resolution.width, resolution.height);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+    
+    public void reset() {
+        mainPnl.removeAll();
+        mainPnl.revalidate();
+        mainPnl.repaint();
+    }
 
-    //Boilerplate
-    public void setMainPnl(LayoutManager layout) {
+    //Panels
+    public void setMainPnlLayout(LayoutManager layout) {
         mainPnl.setLayout(layout);
     }
     
-    /*
-    Methods
-    Panels
-    */
     public void addPnl(JPanel pnl) {
         mainPnl.add(pnl);
     }
@@ -105,20 +116,5 @@ public class Frame {
         gbc.gridx = x;
         gbc.gridy = y;
         pnl.add(btn, gbc);
-    }
-    
-    //Frame
-    public void display() {
-        Dimension resolution = Toolkit.getDefaultToolkit().getScreenSize();
-        frame.add(mainPnl, BorderLayout.CENTER);
-        frame.setSize(resolution.width, resolution.height);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-    }
-    
-    public void reset() {
-        mainPnl.removeAll();
-        mainPnl.revalidate();
-        mainPnl.repaint();
     }
 }

@@ -19,7 +19,7 @@ public class GamePanel {
     
     public static void display(Frame frame, Player player, CardGrid cardGrid) {
         frame.reset();
-        frame.setMainPnl(new GridBagLayout());
+        frame.setMainPnlLayout(new GridBagLayout());
         
         displayStatus(frame, player);
         displayGrid(frame, cardGrid);

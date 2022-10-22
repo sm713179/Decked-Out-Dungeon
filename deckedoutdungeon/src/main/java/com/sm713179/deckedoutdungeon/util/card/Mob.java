@@ -25,14 +25,6 @@ public class Mob extends Card {
     public int getBaseHp() {
         return baseHp;
     }
-
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
-
-    public void setBaseHp(int baseHp) {
-        this.baseHp = baseHp;
-    }
     
     @Override
     public String getCardType() {

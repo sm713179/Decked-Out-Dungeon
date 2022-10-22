@@ -42,22 +42,6 @@ public class Player extends Card {
         return weapon;
     }
 
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
-
-    public void setMaxHp(int maxHp) {
-        this.maxHp = maxHp;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
     }

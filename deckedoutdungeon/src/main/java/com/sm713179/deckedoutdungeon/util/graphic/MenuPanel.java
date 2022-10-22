@@ -8,7 +8,6 @@ import com.sm713179.deckedoutdungeon.instance.Game;
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 /**
@@ -19,7 +18,7 @@ public class MenuPanel {
     
     public static void display(Frame frame, boolean isGameOver, int highScore, int latestScore) {
         frame.reset();
-        frame.setMainPnl(new GridBagLayout());
+        frame.setMainPnlLayout(new GridBagLayout());
         JPanel pnl = new JPanel(new FlowLayout());
         
         String head = "Decked Out Dungeon";

@@ -28,15 +28,6 @@ public abstract class Card {
     public ImageIcon getIcon() {
         return icon;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setIcon(String iconPath) {
-        this.icon = new ImageIcon(
-                "src/main/java/com/sm713179/deckedoutdungeon/resource/icon/" + iconPath);
-    }
     
     //Methods
     public String getCardType() {
