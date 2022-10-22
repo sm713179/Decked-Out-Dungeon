@@ -14,6 +14,9 @@ public abstract class Card {
     String name;
     ImageIcon icon;
 
+    //Boilerplate
+    public Card() {}
+
     public Card(String name, String iconPath) {
         this.name = name;
         this.icon = new ImageIcon(
@@ -37,8 +40,8 @@ public abstract class Card {
                 "src/main/java/com/sm713179/deckedoutdungeon/resource/icon/" + iconPath);
     }
     
-    public boolean isType(String cardType) {
-        cardType = "class com.sm713179.deckedoutdungeon.util.card." + cardType;
-        return cardType.equals(this.getClass().toString());
+    //Methods
+    public String getCardType() {
+        return "Card";
     }
 }

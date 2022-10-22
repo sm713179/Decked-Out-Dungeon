@@ -12,6 +12,9 @@ public class Player extends Card {
     int hp, maxHp, level, score;
     Weapon weapon;
 
+    //Boilerplate
+    public Player() {}
+
     public Player(int hp, int maxHp, Weapon weapon, String name, String iconPath) {
         super(name, iconPath);
         this.hp = hp;
@@ -61,6 +64,12 @@ public class Player extends Card {
         this.weapon = weapon;
     }
     
+    @Override
+    public String getCardType() {
+        return "Player";
+    }
+    
+    //Methods
     public void incLevel() {
         level++;
     }

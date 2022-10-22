@@ -15,6 +15,9 @@ public class Trap extends Card {
     boolean isActive;
     ImageIcon inactiveIcon;
 
+    //Boilerplate
+    public Trap() {}
+
     public Trap(int dmg, boolean isActive, String inactiveIconPath, String name, String iconPath) {
         super(name, iconPath);
         this.dmg = dmg;
@@ -48,6 +51,12 @@ public class Trap extends Card {
                 "src/main/java/com/sm713179/deckedoutdungeon/resource/icon/trap/inactive/" + inactiveIconPath);
     }
     
+    @Override
+    public String getCardType() {
+        return "Trap";
+    }
+    
+    //Methods
     public void toggleActive() {
         if (isActive) {
             isActive = false;

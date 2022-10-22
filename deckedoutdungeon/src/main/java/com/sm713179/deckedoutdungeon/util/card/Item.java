@@ -14,6 +14,9 @@ public class Item extends Card {
     ItemType itemType;
     int value;
 
+    //Boilerplate
+    public Item() {}
+
     public Item(ItemType itemType, int value, String name, String iconPath) {
         super(name, iconPath);
         this.itemType = itemType;
@@ -36,6 +39,12 @@ public class Item extends Card {
         this.value = value;
     }
     
+    @Override
+    public String getCardType() {
+        return "Item";
+    }
+        
+    //Methods
     public void getRandomValue() {
         value = ThreadLocalRandom.current().nextInt(2, 5);
     }

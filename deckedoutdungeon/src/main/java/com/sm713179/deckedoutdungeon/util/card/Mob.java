@@ -11,6 +11,9 @@ package com.sm713179.deckedoutdungeon.util.card;
 public class Mob extends Card {
     int hp, baseHp;
 
+    //Boilerplate
+    public Mob() {}
+    
     public Mob(int hp, int baseHp, String name, String iconPath) {
         super(name, iconPath);
         this.hp = hp;
@@ -33,6 +36,12 @@ public class Mob extends Card {
         this.baseHp = baseHp;
     }
     
+    @Override
+    public String getCardType() {
+        return "Mob";
+    }
+    
+    //Methods
     public void restoreHp() {
         hp = baseHp;
     }

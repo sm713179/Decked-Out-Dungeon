@@ -6,16 +6,19 @@ package com.sm713179.deckedoutdungeon.util.card.collection;
 
 import com.sm713179.deckedoutdungeon.util.card.Card;
 import com.sm713179.deckedoutdungeon.util.card.Player;
+import java.io.Serializable;
 
 /**
  *
  * @author Samuel McClatchey
  */
-public class CardGrid {
+public class CardGrid implements Serializable {
     Card[][] cardGrid;
-    int rows;
-    int cols;
+    int rows, cols;
 
+    //Boilerplate
+    public CardGrid() {}
+    
     public CardGrid(Deck deck, Player player, int rows, int cols) {
         cardGrid = new Card[rows][cols];
         this.rows = rows;
@@ -36,7 +39,20 @@ public class CardGrid {
     public int getCols() {
         return cols;
     }
+
+    public void setCardGrid(Card[][] cardGrid) {
+        this.cardGrid = cardGrid;
+    }
+
+    public void setRows(int rows) {
+        this.rows = rows;
+    }
+
+    public void setCols(int cols) {
+        this.cols = cols;
+    }
     
+    //Methods
     public final void spawnPlayer(Player player) {
         int row = rows / 2;
         int col = (cols - 1) / 2;
@@ -49,7 +65,7 @@ public class CardGrid {
             for(int y = 0; y < cols; y++) {
                 if (cardGrid[x][y] == null) {
                     cardGrid[x][y] = deck.draw();
-                } else if (!cardGrid[x][y].isType("Player")) { //repopulate
+                } else if (!cardGrid[x][y].getCardType().equals("Player")) { //repopulate
                     deck.bury(cardGrid[x][y]);
                     cardGrid[x][y] = deck.draw();
                 }

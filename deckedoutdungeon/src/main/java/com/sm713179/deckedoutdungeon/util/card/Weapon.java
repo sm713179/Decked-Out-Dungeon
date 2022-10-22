@@ -11,6 +11,9 @@ package com.sm713179.deckedoutdungeon.util.card;
 public class Weapon extends Card {
     int durability, maxDurability;
 
+    //Boilerplate
+    public Weapon() {}
+    
     public Weapon(int durability, int baseDurability, String name, String iconPath) {
         super(name, iconPath);
         this.durability = durability;
@@ -33,6 +36,12 @@ public class Weapon extends Card {
         this.maxDurability = maxDurability;
     }
     
+    @Override
+    public String getCardType() {
+        return "Weapon";
+    }
+    
+    //Methods
     public void restoreDurability() {
         durability = maxDurability;
     }
