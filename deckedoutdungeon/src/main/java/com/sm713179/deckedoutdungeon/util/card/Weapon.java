@@ -26,11 +26,6 @@ public class Weapon extends Card {
         return maxDurability;
     }
     
-    @Override
-    public String getCardType() {
-        return "Weapon";
-    }
-    
     //Methods
     public void restoreDurability() {
         durability = maxDurability;

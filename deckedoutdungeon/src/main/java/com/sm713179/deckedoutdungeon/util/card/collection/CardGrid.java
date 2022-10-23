@@ -50,7 +50,7 @@ public class CardGrid {
             for(int y = 0; y < cols; y++) {
                 if (cardGrid[x][y] == null) {
                     cardGrid[x][y] = deck.draw();
-                } else if (!cardGrid[x][y].getCardType().equals("Player")) { //repopulate
+                } else if (!cardGrid[x][y].isCardType("Player")) { //repopulate
                     deck.bury(cardGrid[x][y]);
                     cardGrid[x][y] = deck.draw();
                 }

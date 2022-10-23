@@ -35,12 +35,7 @@ public class Trap extends Card {
     public ImageIcon getInactiveIcon() {
         return inactiveIcon;
     }
-    
-    @Override
-    public String getCardType() {
-        return "Trap";
-    }
-    
+
     //Methods
     public void reactivate() {
         isActive = true;

@@ -26,11 +26,6 @@ public class Mob extends Card {
         return baseHp;
     }
     
-    @Override
-    public String getCardType() {
-        return "Mob";
-    }
-    
     //Methods
     public void restoreHp() {
         hp = baseHp;

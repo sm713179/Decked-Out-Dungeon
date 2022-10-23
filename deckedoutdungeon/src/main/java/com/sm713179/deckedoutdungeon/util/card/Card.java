@@ -30,7 +30,8 @@ public abstract class Card {
     }
     
     //Methods
-    public String getCardType() {
-        return "Card";
+    public boolean isCardType(String cardType) {
+        cardType = "class com.sm713179.deckedoutdungeon.util.card." + cardType;
+        return cardType.equals(this.getClass().toString());
     }
 }

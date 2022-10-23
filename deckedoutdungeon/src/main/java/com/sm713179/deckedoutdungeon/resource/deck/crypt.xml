@@ -29,7 +29,7 @@
 	<card>
 		<type>Weapon</type>
 		<count>1</count>
-		<name>Hammer</name>
+		<name>Axe</name>
 		<icon>misc/emptyTile.png</icon>
 		<durability>4</durability>
 	</card>

@@ -28,11 +28,6 @@ public class Item extends Card {
     public int getValue() {
         return value;
     }
-    
-    @Override
-    public String getCardType() {
-        return "Item";
-    }
         
     //Methods
     public void getRandomValue() {

@@ -14,9 +14,4 @@ public class Misc extends Card {
     public Misc(String name, String iconPath) {
         super(name, iconPath);
     }
-    
-    @Override
-    public String getCardType() {
-        return "Misc";
-    }
 }

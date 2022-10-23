@@ -46,11 +46,6 @@ public class Player extends Card {
         this.weapon = weapon;
     }
     
-    @Override
-    public String getCardType() {
-        return "Player";
-    }
-    
     //Methods
     public void incLevel() {
         level++;
