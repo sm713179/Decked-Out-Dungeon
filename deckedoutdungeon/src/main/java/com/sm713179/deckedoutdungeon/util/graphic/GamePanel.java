@@ -23,7 +23,7 @@ public class GamePanel {
         
         displayStatus(frame, player);
         displayGrid(frame, cardGrid);
-        displayLog(frame); //Nothing yet
+        //displayLog(frame); //Nothing yet
         
         frame.display();
     }
@@ -60,22 +60,23 @@ public class GamePanel {
     }
     
     public static void displayGrid(Frame frame, CardGrid cardGrid) {
-        JPanel pnl = new JPanel(new FlowLayout());
-        int rows = cardGrid.getRows();
-        int cols = cardGrid.getCols();
+        JPanel gridPnl = new JPanel(new GridBagLayout());
+        int x = 0;
+        int y = 0;
         
-        String msg = "<html>";
         for (Card[] row : cardGrid.getCardGrid()) {
             for (Card card : row) {
-                msg += card.getName() + ", ";
+                JPanel cardPnl = CardPanel.paintCard(card);
+                frame.addPnl(cardPnl, gridPnl, x, y);
+                x++;
             }
-            msg += "<br />";
+            y++;
+            x = 0;
         }
-        msg += "</html>";
         
-        frame.addLbl(msg, pnl);
-        frame.addPnl(pnl, 1, 0);
+        frame.addPnl(gridPnl, 1, 0);
     }
+    
     
     public static void displayLog(Frame frame) { //accept log later
         //WIP
