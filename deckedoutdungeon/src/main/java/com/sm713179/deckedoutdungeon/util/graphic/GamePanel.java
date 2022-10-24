@@ -16,14 +16,17 @@ import javax.swing.border.*;
  * @author Samuel McClatchey
  */
 public class GamePanel {
+    static String spacer = "<html><h3 style='font-size:2em;'><pre>     </pre><h3></html>";
     
     public static void display(Frame frame, Player player, CardGrid cardGrid) {
         frame.reset();
         frame.setMainPnlLayout(new GridBagLayout());
         
         displayStatus(frame, player);
+        frame.addLbl(spacer, 1, 0);
         displayGrid(frame, cardGrid);
-        //displayLog(frame); //Nothing yet
+        frame.addLbl(spacer, 3, 0);
+        displayLog(frame);
         
         frame.display();
     }
@@ -36,8 +39,7 @@ public class GamePanel {
         status = "<html><h3 style='font-size:2em;'><span style='color:Green'>&#11014;</span>Level: " + player.getLevel()
                 + "<br />" + "<span style='color:Red'>&#9829;</span>HP: " + player.getHp() + "/" + player.getMaxHp() + "</h3></html>";
         frame.addLbl(status, pnl, 0, 0);
-        status = "<html><h3 style='font-size:2em;'><pre>     </pre><h3></html>";
-        frame.addLbl(status, pnl, 1, 0);
+        frame.addLbl(spacer, pnl, 1, 0);
         status = "<html><h3 style='font-size:2em;'><span style='color:#FFD700'>&#9899;</span>Score: " + player.getScore()
                 + "<br />" + "<span style='color:#708090'>&#9876;</span>Weapon: ";
         
@@ -74,11 +76,15 @@ public class GamePanel {
             x = 0;
         }
         
-        frame.addPnl(gridPnl, 1, 0);
+        frame.addPnl(gridPnl, 2, 0);
     }
-    
+
     
     public static void displayLog(Frame frame) { //accept log later
+        JPanel pnl = new JPanel();
+        
         //WIP
+        
+        frame.addPnl(pnl, 4, 0);
     }
 }

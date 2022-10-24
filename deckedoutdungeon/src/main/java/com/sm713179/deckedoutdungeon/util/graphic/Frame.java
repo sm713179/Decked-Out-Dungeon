@@ -21,8 +21,9 @@ public class Frame {
     public void display() {
         Dimension resolution = Toolkit.getDefaultToolkit().getScreenSize();
         frame.add(mainPnl, BorderLayout.CENTER);
-        frame.setSize(resolution.width, resolution.height);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setSize(resolution.width, resolution.height);
         frame.setVisible(true);
     }
     

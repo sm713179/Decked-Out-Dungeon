@@ -6,8 +6,7 @@ package com.sm713179.deckedoutdungeon.util.graphic;
 
 import com.sm713179.deckedoutdungeon.resource.graphic.RoundRectangle;
 import com.sm713179.deckedoutdungeon.util.card.Card;
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 import javax.swing.JPanel;
 
 /**
@@ -23,6 +22,7 @@ public class CardPanel {
                 super.paintComponent(g);
                 
                 setSize(180, 250);
+                setPreferredSize(new Dimension(180, 250));
                 setToolTipText(card.getName());
                 RoundRectangle.paint(g, Color.LIGHT_GRAY, 0, 0, 180, 250, 10, 10);
                 RoundRectangle.paint(g, Color.WHITE, 5, 5, 170, 240, 10, 10);
