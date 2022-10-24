@@ -9,25 +9,25 @@ package com.sm713179.deckedoutdungeon.util.card;
  * @author Samuel McClatchey
  */
 public class Mob extends Card {
-    int hp, baseHp;
+    int hp, maxHp;
 
     //Boilerplate
-    public Mob(int hp, int baseHp, String name, String iconPath) {
+    public Mob(int hp, int maxHp, String name, String iconPath) {
         super(name, iconPath);
         this.hp = hp;
-        this.baseHp = baseHp;
+        this.maxHp = maxHp;
     }
 
     public int getHp() {
         return hp;
     }
 
-    public int getBaseHp() {
-        return baseHp;
+    public int getMaxHp() {
+        return maxHp;
     }
     
     //Methods
     public void restoreHp() {
-        hp = baseHp;
+        hp = maxHp;
     }
 }

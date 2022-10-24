@@ -36,18 +36,19 @@ public class GamePanel {
         Weapon weapon = player.getWeapon();
         String status;
         
-        status = "<html><h3 style='font-size:2em;'><span style='color:Green'>&#11014;</span>Level: " + player.getLevel()
-                + "<br />" + "<span style='color:Red'>&#9829;</span>HP: " + player.getHp() + "/" + player.getMaxHp() + "</h3></html>";
+        status = "<html><h3 style='font-size:2em;'><span style='color:Green'>&#11014;</span>Level: "
+                + player.getLevel() + "<br />" + "<span style='color:Red'>&#9829;</span>HP: "
+                + player.getHp() + "/" + player.getMaxHp() + "</h3></html>";
         frame.addLbl(status, pnl, 0, 0);
         frame.addLbl(spacer, pnl, 1, 0);
-        status = "<html><h3 style='font-size:2em;'><span style='color:#FFD700'>&#9899;</span>Score: " + player.getScore()
-                + "<br />" + "<span style='color:#708090'>&#9876;</span>Weapon: ";
+        status = "<html><h3 style='font-size:2em;'><span style='color:#FFD700'>&#9899;</span>Score: "
+                + player.getScore() + "<br />" + "<span style='color:#708090'>&#9876;</span>Weapon: ";
         
         if (weapon == null) {
             status += "None";
         } else {
-            status += weapon.getDurability() + "/" + weapon.getMaxDurability()
-                    + " (" + weapon.getName() + ")";
+            status += weapon.getName() + " (" + weapon.getDurability() + "/"
+                    + weapon.getMaxDurability() + ")";
         }
         
         status += "</h3></html>";
@@ -72,8 +73,8 @@ public class GamePanel {
                 frame.addPnl(cardPnl, gridPnl, x, y);
                 x++;
             }
-            y++;
             x = 0;
+            y++;
         }
         
         frame.addPnl(gridPnl, 2, 0);

@@ -30,7 +30,7 @@ public class Item extends Card {
     }
         
     //Methods
-    public void getRandomValue() {
+    public void randomizeValue() {
         value = ThreadLocalRandom.current().nextInt(2, 5);
     }
 }
