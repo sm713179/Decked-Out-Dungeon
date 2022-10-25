@@ -34,7 +34,7 @@ public class CardPanel {
                 RoundRectangle.paint(g, Color.WHITE, cardX + 1, cardY + 1, 
                         cardWidth - 2, cardHeight - 2, 10, 10);
                 
-                String toolTipTxt = "<html>" + card.getName();
+                String toolTipTxt = "<html>" + card.getName() + " (";
                 
                 if (card.isCardType("Mob") || card.isCardType("Player")) {
                     Heart.paint(g, Color.RED, cardWidth - cardX, 
@@ -42,16 +42,14 @@ public class CardPanel {
                     
                     if (card.isCardType("Mob")) {
                         Mob mob = (Mob) card;
-                        toolTipTxt += " (Mob)<br />" + "HP: "
+                        toolTipTxt += "Mob)<br />" + "HP: "
                                 + mob.getHp() + "/" + mob.getMaxHp();
                     } else {
                         Player player = (Player) card;
                         Weapon weapon = player.getWeapon();
                         
-                        toolTipTxt += " (Player)<br />" + "HP: "
+                        toolTipTxt += "Player)<br />" + "HP: "
                                 + player.getHp() + "/" + player.getMaxHp()
-                                + "<br />Level: " + player.getLevel()
-                                + "<br />Score: " + player.getScore()
                                 + "<br />Weapon ";
                         
                         if (weapon == null) {
@@ -63,6 +61,11 @@ public class CardPanel {
                         }
                     }
                 }
+                
+                //Item
+                //Misc
+                //Weapon
+                //Trap
                 
                 toolTipTxt += "</html>";
                 setToolTipText(toolTipTxt);
