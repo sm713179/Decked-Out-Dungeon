@@ -11,22 +11,21 @@ import javax.swing.ImageIcon;
  * @author Samuel McClatchey
  */
 public abstract class Card {
-    String name;
-    ImageIcon icon;
+    String name, iconPath;
 
     //Boilerplate
     public Card(String name, String iconPath) {
         this.name = name;
-        this.icon = new ImageIcon(
-                "src/main/java/com/sm713179/deckedoutdungeon/resource/icon/" + iconPath);
+        this.iconPath = "src/main/java/com/sm713179/deckedoutdungeon/resource/icon/"
+                + iconPath;
     }
 
     public String getName() {
         return name;
     }
 
-    public ImageIcon getIcon() {
-        return icon;
+    public String getIconPath() {
+        return iconPath;
     }
     
     //Methods

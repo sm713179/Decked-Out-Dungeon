@@ -74,8 +74,8 @@ public class DeckBuilder {
                         }
                     } else if (cardType.equals("Trap")) {
                         dmg = parseInt(element.getElementsByTagName("dmg").item(0).getTextContent());
-                        inactiveIconPath = element.getElementsByTagName("inactiveIcon").item(0).getTextContent();
-                        Trap trap = new Trap(dmg, false, inactiveIconPath, name, iconPath);
+                        String altIconPath = element.getElementsByTagName("altIcon").item(0).getTextContent();
+                        Trap trap = new Trap(dmg, false, altIconPath, name, iconPath);
                         
                         for(int y = 0; y < count; y++) {
                             deck.add(trap);

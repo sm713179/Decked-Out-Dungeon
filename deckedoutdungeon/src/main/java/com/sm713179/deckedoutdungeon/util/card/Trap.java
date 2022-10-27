@@ -13,15 +13,15 @@ import javax.swing.ImageIcon;
 public class Trap extends Card {
     int dmg;
     boolean isActive;
-    ImageIcon inactiveIcon;
+    String altIconPath;
 
     //Boilerplate
-    public Trap(int dmg, boolean isActive, String inactiveIconPath, String name, String iconPath) {
+    public Trap(int dmg, boolean isActive, String altIconPath, String name, String iconPath) {
         super(name, iconPath);
         this.dmg = dmg;
         this.isActive = isActive;
-        this.inactiveIcon = new ImageIcon(
-                "src/main/java/com/sm713179/deckedoutdungeon/resource/icon/trap/inactive/" + inactiveIconPath);
+        this.altIconPath = "src/main/java/com/sm713179/deckedoutdungeon/resource/icon/trap/inactive/"
+                + altIconPath;
     }
 
     public int getDmg() {
@@ -32,8 +32,8 @@ public class Trap extends Card {
         return isActive;
     }
 
-    public ImageIcon getInactiveIcon() {
-        return inactiveIcon;
+    public String getAltIconPath() {
+        return altIconPath;
     }
 
     //Methods

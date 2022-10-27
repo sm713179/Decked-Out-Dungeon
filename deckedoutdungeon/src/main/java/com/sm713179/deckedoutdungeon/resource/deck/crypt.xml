@@ -84,7 +84,7 @@
 		<name>Spikes</name>
 		<icon>misc/emptyTile.png</icon>
 		<dmg>2</dmg>
-		<inactiveIcon>emptyTile.png</inactiveIcon>
+		<altIcon>emptyTile.png</altIcon>
 	</card>
 	<card>
 		<type>Item</type>

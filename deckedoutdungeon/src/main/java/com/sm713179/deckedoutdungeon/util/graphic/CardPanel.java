@@ -35,6 +35,7 @@ public class CardPanel {
                         cardWidth - 2, cardHeight - 2, 10, 10);
                 
                 String toolTipTxt = "<html>" + card.getName() + " (";
+                //iconImg = new ImageIcon(card.getIconPath)
                 
                 if (card.isCardType("Mob") || card.isCardType("Player")) {
                     Heart.paint(g, Color.RED, cardWidth - cardX, 
