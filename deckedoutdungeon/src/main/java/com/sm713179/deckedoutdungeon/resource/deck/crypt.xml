@@ -10,14 +10,14 @@
 		<type>Mob</type>
 		<count>2</count>
 		<name>Zombie</name>
-		<icon>misc/emptyTile.png</icon>
+		<icon>mob/zombie.png</icon>
 		<hp>2</hp>
 	</card>
 	<card>
 		<type>Misc</type>
 		<count>6</count>
-		<name>Empty Tile</name>
-		<icon>misc/emptyTile.png</icon>
+		<name>Empty Space</name>
+		<icon>misc/bonePile.png</icon>
 	</card>
 	<card>
 		<type>Weapon</type>
@@ -37,21 +37,21 @@
 		<type>Mob</type>
 		<count>2</count>
 		<name>Draugr</name>
-		<icon>misc/emptyTile.png</icon>
+		<icon>mob/draugr.png</icon>
 		<hp>4</hp>
 	</card>
 	<card>
 		<type>Mob</type>
 		<count>2</count>
 		<name>Skeleton</name>
-		<icon>misc/emptyTile.png</icon>
+		<icon>mob/skeleton.png</icon>
 		<hp>2</hp>
 	</card>
 	<card>
 		<type>Mob</type>
 		<count>2</count>
 		<name>Slime</name>
-		<icon>misc/emptyTile.png</icon>
+		<icon>mob/dungeonSlime.png</icon>
 		<hp>2</hp>
 	</card>
 	<card>

@@ -8,6 +8,7 @@ import com.sm713179.deckedoutdungeon.resource.graphic.Heart;
 import com.sm713179.deckedoutdungeon.resource.graphic.RoundRectangle;
 import com.sm713179.deckedoutdungeon.util.card.*;
 import java.awt.*;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -35,7 +36,10 @@ public class CardPanel {
                         cardWidth - 2, cardHeight - 2, 10, 10);
                 
                 String toolTipTxt = "<html>" + card.getName() + " (";
-                //iconImg = new ImageIcon(card.getIconPath)
+                
+                ImageIcon iconImg = new ImageIcon(card.getIconPath());
+                iconImg = new ImageIcon(iconImg.getImage().getScaledInstance(cardX * 5, cardX * 5, java.awt.Image.SCALE_SMOOTH));
+                iconImg.paintIcon(this, g, cardWidth / 2 - cardX * 5 / 4, cardY * 3);
                 
                 if (card.isCardType("Mob") || card.isCardType("Player")) {
                     Heart.paint(g, Color.RED, cardWidth - cardX, 
