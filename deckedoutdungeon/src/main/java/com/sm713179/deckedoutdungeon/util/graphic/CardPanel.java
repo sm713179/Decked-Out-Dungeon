@@ -4,7 +4,7 @@
  */
 package com.sm713179.deckedoutdungeon.util.graphic;
 
-import com.sm713179.deckedoutdungeon.resource.graphic.Heart;
+import com.sm713179.deckedoutdungeon.resource.graphic.Icon;
 import com.sm713179.deckedoutdungeon.resource.graphic.RoundRectangle;
 import com.sm713179.deckedoutdungeon.util.card.*;
 import java.awt.*;
@@ -29,55 +29,78 @@ public class CardPanel {
                 int cardY = cardHeight / 16;
                 int pnlWidth = cardWidth + cardWidth / 8;
                 int pnlHeight = cardHeight + cardWidth / 8;
-                int iconSize = cardWidth / 3 * 2;
                 
                 //Panel
                 setSize(pnlWidth, pnlHeight);
                 setPreferredSize(new Dimension(pnlWidth, pnlHeight));
                 
                 //Card
-                RoundRectangle.paint(g, Color.LIGHT_GRAY, cardX, cardY, 
-                        cardWidth, cardHeight, 10, 10);
-                RoundRectangle.paint(g, Color.WHITE, cardX + 1, cardY + 1, 
-                        cardWidth - 2, cardHeight - 2, 10, 10);
-                
-                String toolTipTxt = "<html>" + card.getName() + " (";
+                RoundRectangle.paint(g, Color.DARK_GRAY, cardX, cardY, 
+                        cardWidth, cardHeight, 25, 25);
+                RoundRectangle.paint(g, Color.WHITE, cardX + 2, cardY + 2, 
+                        cardWidth - 4, cardHeight - 4, 25, 25);
                 
                 //Icon
-                ImageIcon iconImg = new ImageIcon(card.getIconPath());
-                iconImg = new ImageIcon(iconImg.getImage().getScaledInstance(iconSize, iconSize, java.awt.Image.SCALE_SMOOTH));
-                iconImg.paintIcon(this, g, pnlWidth / 2 - iconSize / 2, pnlHeight / 2 - iconSize / 2);
+                int iconSize = cardWidth / 3 * 2;
                 
-                if (card.isCardType("Mob") || card.isCardType("Player")) {
-                    Heart.paint(g, Color.RED, cardWidth - cardWidth / 6, 
-                            cardY + cardX / 2, cardWidth / 6, cardHeight / 6);
+                ImageIcon icon = Icon.resize(card.getIconPath(), 
+                        iconSize, iconSize);
+                icon.paintIcon(this, g, pnlWidth / 2 - iconSize / 2,
+                        pnlHeight / 2 - iconSize / 2);
+                
+                //Attribute & Tooltips
+                int attributeSize = cardWidth / 5;
+                String attributePath =
+                        "src/main/java/com/sm713179/deckedoutdungeon/resource/icon/attribute/";
+                String toolTipTxt = "<html>" + card.getName() + " (";
+                
+                if (card.isCardType("Mob")) {
+                    ImageIcon heart = Icon.resize(attributePath + "heart.png",
+                            attributeSize, attributeSize);
+                    heart.paintIcon(this, g, cardWidth - attributeSize,
+                            cardY + cardX);
                     
-                    if (card.isCardType("Mob")) {
-                        Mob mob = (Mob) card;
-                        toolTipTxt += "Mob)<br />" + "HP: "
-                                + mob.getHp() + "/" + mob.getMaxHp();
+                    Mob mob = (Mob) card;
+                    
+                    toolTipTxt += "Mob)<br />" + "HP: "
+                            + mob.getHp() + "/" + mob.getMaxHp();
+                    
+                } else if (card.isCardType("Item")) {
+                    
+                } else if (card.isCardType("Weapon") || card.isCardType("Trap")) {
+                    ImageIcon diamond = Icon.resize(attributePath + "diamond.png",
+                            attributeSize, attributeSize);
+                    diamond.paintIcon(this, g, cardX * 2,
+                            cardHeight - cardX * 3);
+                    
+                } else if (card.isCardType("Misc")) {
+                    toolTipTxt += "Misc)";
+                    
+                } else if (card.isCardType("Player")) {
+                    ImageIcon heart = Icon.resize(attributePath + "heart.png",
+                            attributeSize, attributeSize);
+                    heart.paintIcon(this, g, cardWidth - attributeSize,
+                            cardY + cardX);
+                    
+                    Player player = (Player) card;
+                    Weapon weapon = player.getWeapon();
+                        
+                    toolTipTxt += "Player)<br />" + "HP: " + player.getHp()
+                            + "/" + player.getMaxHp() + "<br />Weapon ";
+                        
+                    if (weapon == null) {
+                        toolTipTxt += "None";
                     } else {
-                        Player player = (Player) card;
-                        Weapon weapon = player.getWeapon();
+                        toolTipTxt += weapon.getName() + " ("
+                                + weapon.getDurability() + "/"
+                                + weapon.getMaxDurability() + ")";
                         
-                        toolTipTxt += "Player)<br />" + "HP: "
-                                + player.getHp() + "/" + player.getMaxHp()
-                                + "<br />Weapon ";
-                        
-                        if (weapon == null) {
-                            toolTipTxt += "None";
-                        } else {
-                            toolTipTxt += weapon.getName() + " ("
-                                    + weapon.getDurability() + "/"
-                                    + weapon.getMaxDurability() + ")";
-                        }
+                        ImageIcon diamond = Icon.resize(attributePath + "diamond.png",
+                            attributeSize, attributeSize);
+                        diamond.paintIcon(this, g, cardX * 2,
+                            cardHeight - cardX * 3);
                     }
                 }
-                
-                //Item
-                //Misc
-                //Weapon
-                //Trap
                 
                 toolTipTxt += "</html>";
                 setToolTipText(toolTipTxt);

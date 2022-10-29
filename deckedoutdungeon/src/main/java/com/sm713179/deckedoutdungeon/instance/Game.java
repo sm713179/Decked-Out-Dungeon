@@ -17,7 +17,8 @@ public class Game {
     public static void createInstance(Frame frame) {
         Deck deck = DeckBuilder.buildDeck("crypt.xml");
         //Create default weapon
-        Player player = new Player(10, 12, null, "Player", "misc/emptyTile.png");
+        Player player = new Player(10, 12, null,
+                "Player", "player/default.png");
         CardGrid cardGrid = new CardGrid(deck, player, 3, 4);
         
         GamePanel.display(frame, player, cardGrid);
