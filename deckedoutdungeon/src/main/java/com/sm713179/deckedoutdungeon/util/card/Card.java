@@ -14,8 +14,7 @@ public abstract class Card {
     //Boilerplate
     public Card(String name, String iconPath) {
         this.name = name;
-        this.iconPath = "src/main/java/com/sm713179/deckedoutdungeon/resource/icon/"
-                + iconPath;
+        this.iconPath = iconPath;
     }
 
     public String getName() {
@@ -23,7 +22,8 @@ public abstract class Card {
     }
 
     public String getIconPath() {
-        return iconPath;
+        return "src/main/java/com/sm713179/deckedoutdungeon/resource/icon/"
+                + iconPath;
     }
     
     //Methods

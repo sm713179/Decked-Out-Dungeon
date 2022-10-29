@@ -18,8 +18,7 @@ public class Trap extends Card {
         super(name, iconPath);
         this.dmg = dmg;
         this.isActive = isActive;
-        this.altIconPath = "src/main/java/com/sm713179/deckedoutdungeon/resource/icon/trap/inactive/"
-                + altIconPath;
+        this.altIconPath = altIconPath;
     }
 
     public int getDmg() {
@@ -31,7 +30,8 @@ public class Trap extends Card {
     }
 
     public String getAltIconPath() {
-        return altIconPath;
+        return "src/main/java/com/sm713179/deckedoutdungeon/resource/icon/trap/inactive/"
+                + altIconPath;
     }
 
     //Methods

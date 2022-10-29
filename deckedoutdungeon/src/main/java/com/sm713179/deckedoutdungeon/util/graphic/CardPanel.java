@@ -31,9 +31,11 @@ public class CardPanel {
                 int pnlHeight = cardHeight + cardWidth / 8;
                 int iconSize = cardWidth / 3 * 2;
                 
+                //Panel
                 setSize(pnlWidth, pnlHeight);
                 setPreferredSize(new Dimension(pnlWidth, pnlHeight));
                 
+                //Card
                 RoundRectangle.paint(g, Color.LIGHT_GRAY, cardX, cardY, 
                         cardWidth, cardHeight, 10, 10);
                 RoundRectangle.paint(g, Color.WHITE, cardX + 1, cardY + 1, 
@@ -41,7 +43,7 @@ public class CardPanel {
                 
                 String toolTipTxt = "<html>" + card.getName() + " (";
                 
-                
+                //Icon
                 ImageIcon iconImg = new ImageIcon(card.getIconPath());
                 iconImg = new ImageIcon(iconImg.getImage().getScaledInstance(iconSize, iconSize, java.awt.Image.SCALE_SMOOTH));
                 iconImg.paintIcon(this, g, pnlWidth / 2 - iconSize / 2, pnlHeight / 2 - iconSize / 2);
