@@ -25,11 +25,15 @@ public class CardPanel {
                 
                 int cardWidth = 180;
                 int cardHeight = 240;
-                int cardX = cardWidth / 8;
-                int cardY = cardHeight / 8;
-                setSize(cardWidth + cardWidth / 8, cardHeight + cardWidth / 8);
-                setPreferredSize(new Dimension(cardWidth + cardWidth / 8, 
-                        cardHeight + cardWidth / 8));
+                int cardX = cardWidth / 16;
+                int cardY = cardHeight / 16;
+                int pnlWidth = cardWidth + cardWidth / 8;
+                int pnlHeight = cardHeight + cardWidth / 8;
+                int iconSize = cardWidth / 3 * 2;
+                
+                setSize(pnlWidth, pnlHeight);
+                setPreferredSize(new Dimension(pnlWidth, pnlHeight));
+                
                 RoundRectangle.paint(g, Color.LIGHT_GRAY, cardX, cardY, 
                         cardWidth, cardHeight, 10, 10);
                 RoundRectangle.paint(g, Color.WHITE, cardX + 1, cardY + 1, 
@@ -37,13 +41,14 @@ public class CardPanel {
                 
                 String toolTipTxt = "<html>" + card.getName() + " (";
                 
+                
                 ImageIcon iconImg = new ImageIcon(card.getIconPath());
-                iconImg = new ImageIcon(iconImg.getImage().getScaledInstance(cardX * 5, cardX * 5, java.awt.Image.SCALE_SMOOTH));
-                iconImg.paintIcon(this, g, cardWidth / 2 - cardX * 5 / 4, cardY * 3);
+                iconImg = new ImageIcon(iconImg.getImage().getScaledInstance(iconSize, iconSize, java.awt.Image.SCALE_SMOOTH));
+                iconImg.paintIcon(this, g, pnlWidth / 2 - iconSize / 2, pnlHeight / 2 - iconSize / 2);
                 
                 if (card.isCardType("Mob") || card.isCardType("Player")) {
-                    Heart.paint(g, Color.RED, cardWidth - cardX, 
-                            cardX + cardX / 4 * 3, cardWidth / 6, cardHeight / 6);
+                    Heart.paint(g, Color.RED, cardWidth - cardWidth / 6, 
+                            cardY + cardX / 2, cardWidth / 6, cardHeight / 6);
                     
                     if (card.isCardType("Mob")) {
                         Mob mob = (Mob) card;
