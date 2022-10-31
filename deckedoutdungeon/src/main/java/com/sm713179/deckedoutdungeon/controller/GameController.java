@@ -7,7 +7,7 @@ package com.sm713179.deckedoutdungeon.controller;
 import com.sm713179.deckedoutdungeon.view.Game;
 import com.sm713179.deckedoutdungeon.model.card.collection.*;
 import com.sm713179.deckedoutdungeon.util.parser.DeckParser;
-import com.sm713179.deckedoutdungeon.model.card.Player;
+import com.sm713179.deckedoutdungeon.model.card.*;
 import com.sm713179.deckedoutdungeon.view.Frame;
 
 /**
@@ -18,9 +18,10 @@ public class GameController {
     
     public static void createInstance(Frame frame) {
         Deck deck = DeckParser.read("crypt.xml");
-        //Create default weapon
-        Player player = new Player(10, 12, null,
-                "Player", "player/default.png");
+        Weapon weapon = new Weapon(3, 
+                "Sword", "weapon/sword_iron");
+        Player player = new Player(10, 12, weapon,
+                "Player", "player/default");
         CardGrid cardGrid = new CardGrid(deck, player, 3, 4);
         
         Game.display(frame, player, cardGrid);

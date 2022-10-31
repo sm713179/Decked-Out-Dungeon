@@ -12,10 +12,10 @@ public class Weapon extends Card {
     int durability, maxDurability;
 
     //Boilerplate
-    public Weapon(int durability, int baseDurability, String name, String iconPath) {
+    public Weapon(int durability, String name, String iconPath) {
         super(name, iconPath);
         this.durability = durability;
-        this.maxDurability = baseDurability;
+        this.maxDurability = durability;
     }
 
     public int getDurability() {

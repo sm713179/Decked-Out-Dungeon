@@ -3,62 +3,62 @@
 		<type>Weapon</type>
 		<count>1</count>
 		<name>Knife</name>
-		<icon>misc/emptyTile.png</icon>
+		<icon>weapon/knife</icon>
 		<durability>3</durability>
 	</card>
 	<card>
 		<type>Mob</type>
 		<count>2</count>
 		<name>Zombie</name>
-		<icon>mob/zombie.png</icon>
+		<icon>mob/zombie</icon>
 		<hp>2</hp>
 	</card>
 	<card>
 		<type>Misc</type>
 		<count>6</count>
-		<name>Empty Space</name>
-		<icon>misc/bonePile.png</icon>
+		<name>Empty Tile</name>
+		<icon>misc/bonePile</icon>
 	</card>
 	<card>
 		<type>Weapon</type>
 		<count>3</count>
 		<name>Sword</name>
-		<icon>misc/emptyTile.png</icon>
+		<icon>weapon/sword_iron</icon>
 		<durability>3</durability>
 	</card>
 	<card>
 		<type>Weapon</type>
 		<count>1</count>
 		<name>Axe</name>
-		<icon>misc/emptyTile.png</icon>
+		<icon>weapon/axe_iron</icon>
 		<durability>4</durability>
 	</card>
 	<card>
 		<type>Mob</type>
 		<count>2</count>
 		<name>Draugr</name>
-		<icon>mob/draugr.png</icon>
+		<icon>mob/draugr</icon>
 		<hp>4</hp>
 	</card>
 	<card>
 		<type>Mob</type>
 		<count>2</count>
 		<name>Skeleton</name>
-		<icon>mob/skeleton.png</icon>
+		<icon>mob/skeleton</icon>
 		<hp>2</hp>
 	</card>
 	<card>
 		<type>Mob</type>
 		<count>2</count>
 		<name>Slime</name>
-		<icon>mob/slime_Dungeon.png</icon>
+		<icon>mob/slime_dungeon</icon>
 		<hp>2</hp>
 	</card>
 	<card>
 		<type>Item</type>
 		<count>1</count>
 		<name>Anvil</name>
-		<icon>misc/emptyTile.png</icon>
+		<icon>item/anvil</icon>
 		<itemType>REPAIR</itemType>
 		<value>2</value>
 	</card>
@@ -66,7 +66,7 @@
 		<type>Item</type>
 		<count>2</count>
 		<name>Coin</name>
-		<icon>misc/emptyTile.png</icon>
+		<icon>item/coin_gold</icon>
 		<itemType>SCORE</itemType>
 		<value>0</value>
 	</card>
@@ -74,7 +74,7 @@
 		<type>Item</type>
 		<count>3</count>
 		<name>Health Potion</name>
-		<icon>misc/emptyTile.png</icon>
+		<icon>item/potion_health</icon>
 		<itemType>HEAL</itemType>
 		<value>4</value>
 	</card>
@@ -82,15 +82,15 @@
 		<type>Trap</type>
 		<count>3</count>
 		<name>Spikes</name>
-		<icon>misc/emptyTile.png</icon>
+		<icon>trap/spikes</icon>
 		<dmg>2</dmg>
-		<altIcon>emptyTile.png</altIcon>
+		<altIcon>spikes_inactive</altIcon>
 	</card>
 	<card>
 		<type>Item</type>
 		<count>1</count>
 		<name>Exit</name>
-		<icon>misc/emptyTile.png</icon>
+		<icon>item/stairs_graybrick</icon>
 		<itemType>EXIT</itemType>
 		<value>0</value>
 	</card>

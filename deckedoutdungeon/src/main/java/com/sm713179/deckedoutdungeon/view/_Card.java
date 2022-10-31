@@ -120,7 +120,7 @@ public class _Card {
                     g.drawString(Integer.toString(player.getHp()),  cardWidth - attributeSize / 3 * 2,  cardY + cardX + attributeSize / 3 * 2);
                         
                     toolTipTxt += "Player)<br />" + "HP: " + player.getHp()
-                            + "/" + player.getMaxHp() + "<br />Weapon ";
+                            + "/" + player.getMaxHp() + "<br />Weapon: ";
                         
                     if (weapon == null) {
                         toolTipTxt += "None";

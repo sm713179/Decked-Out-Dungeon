@@ -12,10 +12,10 @@ public class Mob extends Card {
     int hp, maxHp;
 
     //Boilerplate
-    public Mob(int hp, int maxHp, String name, String iconPath) {
+    public Mob(int hp, String name, String iconPath) {
         super(name, iconPath);
         this.hp = hp;
-        this.maxHp = maxHp;
+        this.maxHp = hp;
     }
 
     public int getHp() {

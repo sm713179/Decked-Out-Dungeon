@@ -47,7 +47,7 @@ public class DeckParser {
                     
                     if (cardType.equals("Mob")) {
                         hp = parseInt(element.getElementsByTagName("hp").item(0).getTextContent());
-                        Mob mob = new Mob(hp, hp, name, iconPath);
+                        Mob mob = new Mob(hp, name, iconPath);
                         
                         for(int y = 0; y < count; y++) {
                             deck.add(mob);
@@ -68,7 +68,7 @@ public class DeckParser {
                         }
                     } else if (cardType.equals("Weapon")) {
                         durability = parseInt(element.getElementsByTagName("durability").item(0).getTextContent());
-                        Weapon weapon = new Weapon(durability, durability, name, iconPath);
+                        Weapon weapon = new Weapon(durability, name, iconPath);
                         
                         for(int y = 0; y < count; y++) {
                             deck.add(weapon);
