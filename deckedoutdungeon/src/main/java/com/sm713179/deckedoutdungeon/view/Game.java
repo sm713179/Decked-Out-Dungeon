@@ -2,10 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.sm713179.deckedoutdungeon.util.graphic;
+package com.sm713179.deckedoutdungeon.view;
 
-import com.sm713179.deckedoutdungeon.util.card.*;
-import com.sm713179.deckedoutdungeon.util.card.collection.CardGrid;
+import com.sm713179.deckedoutdungeon.view.Frame;
+import com.sm713179.deckedoutdungeon.view._Card;
+import com.sm713179.deckedoutdungeon.model.card.*;
+import com.sm713179.deckedoutdungeon.model.card.collection.CardGrid;
 import java.awt.*;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -15,7 +17,7 @@ import javax.swing.border.*;
  *
  * @author Samuel McClatchey
  */
-public class GamePanel {
+public class Game {
     
     public static void display(Frame frame, Player player, CardGrid cardGrid) {
         frame.reset();
@@ -67,7 +69,7 @@ public class GamePanel {
         
         for (Card[] row : cardGrid.getCardGrid()) {
             for (Card card : row) {
-                JPanel cardPnl = CardPanel.paintCard(card);
+                JPanel cardPnl = _Card.display(card);
                 frame.addPnl(cardPnl, gridPnl, x, y);
                 x++;
             }

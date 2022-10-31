@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.sm713179.deckedoutdungeon.util.graphic;
+package com.sm713179.deckedoutdungeon.view;
 
-import com.sm713179.deckedoutdungeon.instance.Game;
+import com.sm713179.deckedoutdungeon.controller.GameController;
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -14,12 +14,14 @@ import javax.swing.JPanel;
  *
  * @author Samuel McClatchey
  */
-public class MenuPanel {
+public class Menu {
     
-    public static void display(Frame frame, boolean isGameOver, int highScore, int latestScore) {
+    public static void display(Frame frame, boolean isGameOver, int latestScore) {
         frame.reset();
         frame.setMainPnlLayout(new GridBagLayout());
         JPanel pnl = new JPanel(new FlowLayout());
+        
+        int highScore = 69; //read from txt;
         
         String head = "Decked Out Dungeon";
         String btnTxt = "&#9654;New Game";
@@ -31,7 +33,7 @@ public class MenuPanel {
         frame.addLbl("<html><h1 style='font-size:8em;'>" + head + "</hl></html>", 0, 0);
         frame.addBtn("<html><h2 style='font-size:4em;'>" + btnTxt + "</h2></html>", 
                 "Start a new game", pnl, (ActionEvent e) -> {
-                    Game.createInstance(frame);
+                    GameController.createInstance(frame);
         });
         frame.addLbl("<html><h2 style='font-size:4em;'>&nbsp;</h2></html>", pnl);
         frame.addBtn("<html><h2 style='font-size:4em;'>&#10060;Quit Game</h2></html>", 

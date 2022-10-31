@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.sm713179.deckedoutdungeon.util.card.collection;
+package com.sm713179.deckedoutdungeon.util.parser;
 
-import com.sm713179.deckedoutdungeon.util.card.*;
+import com.sm713179.deckedoutdungeon.model.card.*;
+import com.sm713179.deckedoutdungeon.model.card.collection.Deck;
 import java.io.File;
 import java.io.IOException;
 import static java.lang.Integer.parseInt;
@@ -16,16 +17,16 @@ import org.xml.sax.SAXException;
  *
  * @author Samuel McClatchey
  */
-public class DeckBuilder {
+public class DeckParser {
     
-    public static Deck buildDeck(String deckPath) {
+    public static Deck read(String deckPath) {
         Deck deck = new Deck();
         
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         
         try {
             DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.parse(new File("src/main/java/com/sm713179/deckedoutdungeon/resource/deck/" + deckPath));
+            Document doc = db.parse(new File("src/main/java/com/sm713179/deckedoutdungeon/content/deck/" + deckPath));
             doc.getDocumentElement().normalize();
             
             String name, iconPath, inactiveIconPath, cardType;

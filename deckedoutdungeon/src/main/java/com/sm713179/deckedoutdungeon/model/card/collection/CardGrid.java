@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.sm713179.deckedoutdungeon.util.card.collection;
+package com.sm713179.deckedoutdungeon.model.card.collection;
 
-import com.sm713179.deckedoutdungeon.util.card.Card;
-import com.sm713179.deckedoutdungeon.util.card.Player;
+import com.sm713179.deckedoutdungeon.model.card.Card;
+import com.sm713179.deckedoutdungeon.model.card.Player;
 
 /**
  *
@@ -50,7 +50,7 @@ public class CardGrid {
             for(int y = 0; y < cols; y++) {
                 if (cardGrid[x][y] == null) {
                     cardGrid[x][y] = deck.draw();
-                } else if (!cardGrid[x][y].isCardType("Player")) { //repopulate
+                } else if (!cardGrid[x][y].isType("Player")) { //repopulate
                     deck.bury(cardGrid[x][y]);
                     cardGrid[x][y] = deck.draw();
                 }

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.sm713179.deckedoutdungeon.util.card;
+package com.sm713179.deckedoutdungeon.model.card;
 
 /**
  *
@@ -22,13 +22,13 @@ public abstract class Card {
     }
 
     public String getIconPath() {
-        return "src/main/java/com/sm713179/deckedoutdungeon/resource/icon/"
+        return "src/main/java/com/sm713179/deckedoutdungeon/content/icon/"
                 + iconPath;
     }
     
     //Methods
-    public boolean isCardType(String cardType) {
-        cardType = "class com.sm713179.deckedoutdungeon.util.card." + cardType;
-        return cardType.equals(this.getClass().toString());
+    public boolean isType(String type) {
+        type = "class com.sm713179.deckedoutdungeon.model.card." + type;
+        return type.equals(this.getClass().toString());
     }
 }

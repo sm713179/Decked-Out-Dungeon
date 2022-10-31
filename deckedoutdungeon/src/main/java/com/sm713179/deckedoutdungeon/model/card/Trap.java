@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.sm713179.deckedoutdungeon.util.card;
+package com.sm713179.deckedoutdungeon.model.card;
 
 /**
  *
@@ -10,14 +10,14 @@ package com.sm713179.deckedoutdungeon.util.card;
  */
 public class Trap extends Card {
     int dmg;
-    boolean isActive;
+    boolean active;
     String altIconPath;
 
     //Boilerplate
-    public Trap(int dmg, boolean isActive, String altIconPath, String name, String iconPath) {
+    public Trap(int dmg, boolean active, String altIconPath, String name, String iconPath) {
         super(name, iconPath);
         this.dmg = dmg;
-        this.isActive = isActive;
+        this.active = active;
         this.altIconPath = altIconPath;
     }
 
@@ -25,25 +25,25 @@ public class Trap extends Card {
         return dmg;
     }
 
-    public boolean getIsActive() {
-        return isActive;
+    public boolean isActive() {
+        return active;
     }
 
     public String getAltIconPath() {
-        return "src/main/java/com/sm713179/deckedoutdungeon/resource/icon/trap/inactive/"
+        return "src/main/java/com/sm713179/deckedoutdungeon/content/icon/trap/inactive/"
                 + altIconPath;
     }
 
     //Methods
     public void reactivate() {
-        isActive = true;
+        active = true;
     }
     
     public void toggleActive() {
-        if (isActive) {
-            isActive = false;
+        if (active) {
+            active = false;
         } else {
-            isActive = true;
+            active = true;
         }
     }
 }

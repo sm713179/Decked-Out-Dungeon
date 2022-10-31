@@ -51,7 +51,7 @@
 		<type>Mob</type>
 		<count>2</count>
 		<name>Slime</name>
-		<icon>mob/dungeonSlime.png</icon>
+		<icon>mob/slime_Dungeon.png</icon>
 		<hp>2</hp>
 	</card>
 	<card>
