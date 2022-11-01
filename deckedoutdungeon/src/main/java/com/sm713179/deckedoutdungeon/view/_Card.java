@@ -75,7 +75,7 @@ public class _Card {
                     
                     toolTipTxt += "Item)";
                     
-                    if (!item.isType("EXIT")) {
+                    if (item.getItemType().toString() != "EXIT") {
                         //Display attribute
                         
                         //Display txt on attribute

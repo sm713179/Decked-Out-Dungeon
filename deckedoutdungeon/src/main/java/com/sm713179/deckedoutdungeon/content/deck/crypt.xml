@@ -90,7 +90,7 @@
 		<type>Item</type>
 		<count>1</count>
 		<name>Exit</name>
-		<icon>item/stairs_graybrick</icon>
+		<icon>item/door_dungeon</icon>
 		<itemType>EXIT</itemType>
 		<value>0</value>
 	</card>
