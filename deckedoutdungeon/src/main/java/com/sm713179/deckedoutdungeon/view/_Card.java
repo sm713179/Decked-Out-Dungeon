@@ -42,7 +42,6 @@ public class _Card {
                 
                 //Icon
                 int iconSize = cardWidth / 3 * 2;
-                
                 ImageIcon icon = Icon.scale(card.getIconPath(), 
                         iconSize, iconSize);
                 icon.paintIcon(this, g, pnlWidth / 2 - iconSize / 2,
@@ -83,28 +82,34 @@ public class _Card {
                         toolTipTxt += "<br />" + item.getItemType()
                                 + ": " + item.getValue();
                     }
-                } else if (card.isType("Weapon") || card.isType("Trap")) {
+                } else if (card.isType("Weapon")) {
                     ImageIcon diamond = Icon.scale(attributePath + "diamond.png",
                             attributeSize, attributeSize);
                     diamond.paintIcon(this, g, cardX * 2,
                             cardHeight - cardX * 3);
                     
-                    if (card.isType("Weapon")) {
-                        Weapon weapon = (Weapon) card;
+                    Weapon weapon = (Weapon) card;
                         
-                        //Add txt to diamond
+                    //Add txt to diamond
                         
-                        toolTipTxt += "Weapon)<br />Durability: "
-                                + weapon.getDurability();
-                    } else {
-                        Trap trap = (Trap) card;
-                        
-                        //Add txt to diamoond
-                        
-                        toolTipTxt += "Trap)";
-                    }
+                    toolTipTxt += "Weapon)<br />Durability: "
+                            + weapon.getDurability();
+
                 } else if (card.isType("Misc")) {
                     toolTipTxt += "Misc)";
+                
+                } else if (card.isType("Trap")) {
+                    ImageIcon diamond = Icon.scale(attributePath + "diamond.png",
+                            attributeSize, attributeSize);
+                    diamond.paintIcon(this, g, cardX * 2,
+                            cardHeight - cardX * 3);
+                    
+                    Trap trap = (Trap) card;
+                    
+                    //Add txt to diamoond
+                    
+                    toolTipTxt += "Trap)<br />Damage: " + trap.getDmg()
+                            + "<br />Active: " + trap.isActive();
                     
                 } else if (card.isType("Player")) {
                     ImageIcon heart = Icon.scale(attributePath + "heart.png",

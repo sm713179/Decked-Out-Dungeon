@@ -14,10 +14,10 @@ public class Trap extends Card {
     String altIconPath;
 
     //Boilerplate
-    public Trap(int dmg, boolean active, String altIconPath, String name, String iconPath) {
+    public Trap(int dmg, String altIconPath, String name, String iconPath) {
         super(name, iconPath);
         this.dmg = dmg;
-        this.active = active;
+        this.active = true;
         this.altIconPath = altIconPath;
     }
 

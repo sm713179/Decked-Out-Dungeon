@@ -26,10 +26,11 @@ public class DeckParser {
         
         try {
             DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.parse(new File("src/main/java/com/sm713179/deckedoutdungeon/content/deck/" + deckPath + ".xml"));
+            Document doc = db.parse(new File("src/main/java/com/sm713179/deckedoutdungeon/content/deck/"
+                    + deckPath + ".xml"));
             doc.getDocumentElement().normalize();
             
-            String name, iconPath, inactiveIconPath, cardType;
+            String name, iconPath, altIconPath, cardType;
             int value, hp, dmg, durability, count;
             ItemType itemType;
             
@@ -40,21 +41,28 @@ public class DeckParser {
                 if (cardNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element element = (Element) cardNode;
                     
-                    cardType = element.getElementsByTagName("type").item(0).getTextContent();
-                    count = parseInt(element.getElementsByTagName("count").item(0).getTextContent());
-                    name = element.getElementsByTagName("name").item(0).getTextContent();
-                    iconPath = element.getElementsByTagName("icon").item(0).getTextContent();
+                    cardType = element.getElementsByTagName("type")
+                            .item(0).getTextContent();
+                    count = parseInt(element.getElementsByTagName("count")
+                            .item(0).getTextContent());
+                    name = element.getElementsByTagName("name")
+                            .item(0).getTextContent();
+                    iconPath = element.getElementsByTagName("icon")
+                            .item(0).getTextContent();
                     
                     if (cardType.equals("Mob")) {
-                        hp = parseInt(element.getElementsByTagName("hp").item(0).getTextContent());
+                        hp = parseInt(element.getElementsByTagName("hp")
+                                .item(0).getTextContent());
                         Mob mob = new Mob(hp, name, iconPath);
                         
                         for(int y = 0; y < count; y++) {
                             deck.add(mob);
                         }
                     } else if (cardType.equals("Item")) {
-                        itemType = ItemType.valueOf(element.getElementsByTagName("itemType").item(0).getTextContent());
-                        value = parseInt(element.getElementsByTagName("value").item(0).getTextContent());
+                        itemType = ItemType.valueOf(element.getElementsByTagName("itemType")
+                                .item(0).getTextContent());
+                        value = parseInt(element.getElementsByTagName("value")
+                                .item(0).getTextContent());
                         Item item = new Item(itemType, value, name, iconPath);
                         
                         for(int y = 0; y < count; y++) {
@@ -67,16 +75,19 @@ public class DeckParser {
                             deck.add(misc);
                         }
                     } else if (cardType.equals("Weapon")) {
-                        durability = parseInt(element.getElementsByTagName("durability").item(0).getTextContent());
+                        durability = parseInt(element.getElementsByTagName("durability")
+                                .item(0).getTextContent());
                         Weapon weapon = new Weapon(durability, name, iconPath);
                         
                         for(int y = 0; y < count; y++) {
                             deck.add(weapon);
                         }
                     } else if (cardType.equals("Trap")) {
-                        dmg = parseInt(element.getElementsByTagName("dmg").item(0).getTextContent());
-                        String altIconPath = element.getElementsByTagName("altIcon").item(0).getTextContent();
-                        Trap trap = new Trap(dmg, false, altIconPath, name, iconPath);
+                        dmg = parseInt(element.getElementsByTagName("dmg")
+                                .item(0).getTextContent());
+                        altIconPath = element.getElementsByTagName("altIcon")
+                                .item(0).getTextContent();
+                        Trap trap = new Trap(dmg, altIconPath, name, iconPath);
                         
                         for(int y = 0; y < count; y++) {
                             deck.add(trap);
@@ -87,7 +98,6 @@ public class DeckParser {
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
-        
         deck.shuffle();
         return deck;
     }
