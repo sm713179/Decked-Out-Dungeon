@@ -17,7 +17,7 @@ import com.sm713179.deckedoutdungeon.view.Frame;
 public class GameController {
     
     public static void createInstance(Frame frame) {
-        Deck deck = DeckParser.read("crypt.xml");
+        Deck deck = DeckParser.read("crypt");
         Weapon weapon = new Weapon(3, 
                 "Sword", "weapon/sword_iron");
         Player player = new Player(10, 12, weapon,

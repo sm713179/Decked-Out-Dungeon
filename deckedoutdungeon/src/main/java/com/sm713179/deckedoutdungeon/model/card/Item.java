@@ -21,8 +21,8 @@ public class Item extends Card {
         this.value = value;
     }
 
-    public ItemType getItemType() {
-        return itemType;
+    public String getItemType() {
+        return itemType.toString();
     }
 
     public int getValue() {
