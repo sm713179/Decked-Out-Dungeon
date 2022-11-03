@@ -30,7 +30,7 @@ public class Trap extends Card {
     }
 
     public String getAltIconPath() {
-        return "src/main/java/com/sm713179/deckedoutdungeon/content/icon/trap/inactive/"
+        return "src/main/java/com/sm713179/deckedoutdungeon/content/icon/trap/alt/"
                 + altIconPath + ".png";
     }
 
