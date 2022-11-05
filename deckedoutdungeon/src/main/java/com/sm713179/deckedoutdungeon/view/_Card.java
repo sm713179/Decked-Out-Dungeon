@@ -75,7 +75,10 @@ public class _Card {
                     toolTipTxt += "Item)";
                     
                     if (!item.getItemType().equals("EXIT")) {
-                        //Display attribute
+                        ImageIcon star = Icon.scale(attributePath + "star.png",
+                            attributeSize, attributeSize);
+                        star.paintIcon(this, g, cardWidth - attributeSize,
+                            cardHeight - cardX * 3);
                         
                         //Display txt on attribute
                         
@@ -99,14 +102,14 @@ public class _Card {
                     toolTipTxt += "Misc)";
                 
                 } else if (card.isType("Trap")) {
-                    ImageIcon diamond = Icon.scale(attributePath + "diamond.png",
-                            attributeSize, attributeSize);
-                    diamond.paintIcon(this, g, cardX * 2,
-                            cardHeight - cardX * 3);
-                    
                     Trap trap = (Trap) card;
                     
-                    //Add txt to diamoond
+                    if (trap.isActive()) {
+                        ImageIcon diamond = Icon.scale(attributePath + "diamond.png",
+                            attributeSize, attributeSize);
+                        diamond.paintIcon(this, g, cardX * 2,
+                            cardHeight - cardX * 3);
+                    }
                     
                     toolTipTxt += "Trap)<br />Damage: " + trap.getDmg()
                             + "<br />Active: " + trap.isActive();
