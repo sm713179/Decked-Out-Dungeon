@@ -9,7 +9,7 @@ package com.sm713179.deckedoutdungeon.model.card;
  * @author Samuel McClatchey
  */
 public class Player extends Card {
-    int hp, maxHp, level, score;
+    int hp, maxHp;
     Weapon weapon;
 
     //Boilerplate
@@ -18,8 +18,6 @@ public class Player extends Card {
         this.hp = hp;
         this.maxHp = maxHp;
         this.weapon = weapon;
-        level = 1;
-        score = 0;
     }
 
     public int getHp() {
@@ -28,14 +26,6 @@ public class Player extends Card {
 
     public int getMaxHp() {
         return maxHp;
-    }
-    
-    public int getLevel() {
-        return level;
-    }
-
-    public int getScore() {
-        return score;
     }
 
     public Weapon getWeapon() {
@@ -47,14 +37,6 @@ public class Player extends Card {
     }
     
     //Methods
-    public void incLevel() {
-        level++;
-    }
-    
-    public void incScore(int value) {
-        score += value;
-    }
-    
     public void heal(int value) {
         hp += value;
         if (hp > maxHp) {

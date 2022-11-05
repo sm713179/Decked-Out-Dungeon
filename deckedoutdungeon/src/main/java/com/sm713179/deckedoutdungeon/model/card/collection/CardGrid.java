@@ -12,21 +12,18 @@ import com.sm713179.deckedoutdungeon.model.card.Player;
  * @author Samuel McClatchey
  */
 public class CardGrid {
-    Card[][] cardGrid;
+    Card[][] grid;
     int rows, cols;
 
     //Boilerplate
-    public CardGrid(Deck deck, Player player, int rows, int cols) {
-        cardGrid = new Card[rows][cols];
+    public CardGrid(int rows, int cols) {
+        grid = new Card[rows][cols];
         this.rows = rows;
         this.cols = cols;
-        
-        spawnPlayer(player);
-        populate(deck);
     }
 
-    public Card[][] getCardGrid() {
-        return cardGrid;
+    public Card[][] getGrid() {
+        return grid;
     }
 
     public int getRows() {
@@ -38,31 +35,33 @@ public class CardGrid {
     }
     
     //Methods
-    public final void spawnPlayer(Player player) {
+    public int[] spawnPlayer(Player player) {
         int row = rows / 2;
         int col = (cols - 1) / 2;
         
-        cardGrid[row][col] = player;
+        grid[row][col] = player;
+        
+        return new int[] {row, col};
     } 
     
-    public final void populate(Deck deck) {
+    public void populate(Deck deck) {
         for (int x = 0; x < rows; x++) { 
             for(int y = 0; y < cols; y++) {
-                if (cardGrid[x][y] == null) {
-                    cardGrid[x][y] = deck.draw();
-                } else if (!cardGrid[x][y].isType("Player")) { //repopulate
-                    deck.bury(cardGrid[x][y]);
-                    cardGrid[x][y] = deck.draw();
+                if (grid[x][y] == null) {
+                    grid[x][y] = deck.draw();
+                } else if (!grid[x][y].isType("Player")) { //repopulate
+                    deck.bury(grid[x][y]);
+                    grid[x][y] = deck.draw();
                 }
             }
         }
     }
     
     public Card getCard(int row, int col) {
-        return cardGrid[row][col];
+        return grid[row][col];
     }
     
     public void setCard(int row, int col, Card card) {
-        cardGrid[row][col] = card;
+        grid[row][col] = card;
     }
 }

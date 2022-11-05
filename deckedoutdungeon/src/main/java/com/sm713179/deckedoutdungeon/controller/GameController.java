@@ -9,21 +9,72 @@ import com.sm713179.deckedoutdungeon.model.card.collection.*;
 import com.sm713179.deckedoutdungeon.util.parser.DeckParser;
 import com.sm713179.deckedoutdungeon.model.card.*;
 import com.sm713179.deckedoutdungeon.view.Frame;
+import com.sm713179.deckedoutdungeon.view.Menu;
 
 /**
  *
  * @author Samuel McClatchey
  */
 public class GameController {
+    Frame frame = new Frame();
+    Deck deck;
+    Player player;
+    CardGrid cardGrid;
+    int level = 0;
+    int score = 0;
+    int highScore = 0; //Get from txt
+    int playerX = 0;
+    int playerY = 0;
+
+    //Boilerplate
+    public Frame getFrame() {
+        return frame;
+    }
+
+    public Deck getDeck() {
+        return deck;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public CardGrid getCardGrid() {
+        return cardGrid;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public int getHighScore() {
+        return highScore;
+    }
     
-    public static void createInstance(Frame frame) {
-        Deck deck = DeckParser.read("crypt");
+    //Methods
+    public void displayMenu() {
+        Menu.display(this);
+    }
+    
+    public void start() {
+        deck = DeckParser.read("crypt");
         Weapon weapon = new Weapon(3, 
                 "Sword", "weapon/sword_iron");
-        Player player = new Player(10, 12, weapon,
+        player = new Player(10, 12, weapon,
                 "Player", "player/default");
-        CardGrid cardGrid = new CardGrid(deck, player, 3, 4);
         
-        Game.display(frame, player, cardGrid);
+        cardGrid = new CardGrid(3, 4);
+        int[] playerAxis = cardGrid.spawnPlayer(player);
+        playerX = playerAxis[0];
+        playerY = playerAxis[1];
+        cardGrid.populate(deck);
+        
+        System.out.println(playerX + ", " + playerY);
+        
+        Game.display(this);
     }
 }

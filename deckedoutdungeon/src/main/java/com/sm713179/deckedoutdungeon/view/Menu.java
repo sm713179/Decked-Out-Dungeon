@@ -5,6 +5,7 @@
 package com.sm713179.deckedoutdungeon.view;
 
 import com.sm713179.deckedoutdungeon.controller.GameController;
+import com.sm713179.deckedoutdungeon.model.card.Player;
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -16,12 +17,20 @@ import javax.swing.JPanel;
  */
 public class Menu {
     
-    public static void display(Frame frame, boolean isGameOver, int latestScore) {
+    public static void display(GameController gameState) {
+        Frame frame = gameState.getFrame();
+        int highScore = gameState.getHighScore();
+        int latestScore = gameState.getScore();
+        
+        boolean isGameOver = false;
+        Player player = gameState.getPlayer();
+        if(player != null) {
+            isGameOver = player.isDead();
+        }
+        
         frame.reset();
         frame.setMainPnlLayout(new GridBagLayout());
         JPanel pnl = new JPanel(new FlowLayout());
-        
-        int highScore = 69; //read from txt;
         
         String head = "Decked Out Dungeon";
         String btnTxt = "&#9654;New Game";
@@ -33,7 +42,7 @@ public class Menu {
         frame.addLbl("<html><h1 style='font-size:8em;'>" + head + "</hl></html>", 0, 0);
         frame.addBtn("<html><h2 style='font-size:4em;'>" + btnTxt + "</h2></html>", 
                 "Start a new game", pnl, (ActionEvent e) -> {
-                    GameController.createInstance(frame);
+                    gameState.start();
         });
         frame.addLbl("<html><h2 style='font-size:4em;'>&nbsp;</h2></html>", pnl);
         frame.addBtn("<html><h2 style='font-size:4em;'>&#10060;Quit Game</h2></html>", 
@@ -44,7 +53,7 @@ public class Menu {
         frame.addLbl("<html><h2 style='font-size:4em;'>High Score: " + highScore
                 + "</h2></html>", 0, 2);
         
-        if (isGameOver) {
+        if (latestScore != 0) {
             frame.addLbl("<html><h2 style='font-size:4em;'>Latest Score: "
                     + latestScore + "</h2></html>", 0, 3);
         }

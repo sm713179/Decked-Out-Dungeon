@@ -5,8 +5,7 @@
 
 package com.sm713179.deckedoutdungeon;
 
-import com.sm713179.deckedoutdungeon.view.Menu;
-import com.sm713179.deckedoutdungeon.view.Frame;
+import com.sm713179.deckedoutdungeon.controller.GameController;
 
 /**
  *
@@ -15,7 +14,7 @@ import com.sm713179.deckedoutdungeon.view.Frame;
 public class Main {
 
     public static void main(String[] args) {
-        Frame frame = new Frame();
-        Menu.display(frame, false, 0);
+        GameController game = new GameController();
+        game.displayMenu();
     }
 }

@@ -4,8 +4,7 @@
  */
 package com.sm713179.deckedoutdungeon.view;
 
-import com.sm713179.deckedoutdungeon.view.Frame;
-import com.sm713179.deckedoutdungeon.view._Card;
+import com.sm713179.deckedoutdungeon.controller.GameController;
 import com.sm713179.deckedoutdungeon.model.card.*;
 import com.sm713179.deckedoutdungeon.model.card.collection.CardGrid;
 import java.awt.*;
@@ -19,30 +18,36 @@ import javax.swing.border.*;
  */
 public class Game {
     
-    public static void display(Frame frame, Player player, CardGrid cardGrid) {
+    public static void display(GameController gameState) {
+        Frame frame = gameState.getFrame();
+        Player player = gameState.getPlayer();
+        int level = gameState.getLevel();
+        int score = gameState.getScore();
+        CardGrid cardGrid = gameState.getCardGrid();
+        
         frame.reset();
         frame.setMainPnlLayout(new GridBagLayout());
         
-        displayStatus(frame, player);
+        displayStatus(frame, player, level, score);
         displayGrid(frame, cardGrid);
         displayLog(frame);
         
         frame.display();
     }
     
-    public static void displayStatus(Frame frame, Player player) {
+    public static void displayStatus(Frame frame, Player player, int level, int score) {
         JPanel pnl = new JPanel(new GridBagLayout());
         Weapon weapon = player.getWeapon();
         String status;
         
         status = "<html><h3 style='font-size:2em;'><span style='color:Green'>&#11014;</span>Level: "
-                + player.getLevel() + "<br />" + "<span style='color:Red'>&#9829;</span>HP: "
+                + level + "<br />" + "<span style='color:Red'>&#9829;</span>HP: "
                 + player.getHp() + "/" + player.getMaxHp() + "</h3></html>";
         frame.addLbl(status, pnl, 0, 0);
         status = "<html><h3 style='font-size:2em;'><pre>     </pre><h3></html>";
         frame.addLbl(status, pnl, 1, 0);
         status = "<html><h3 style='font-size:2em;'><span style='color:#FFD700'>&#9899;</span>Score: "
-                + player.getScore() + "<br />" + "<span style='color:#708090'>&#9876;</span>Weapon: ";
+                + score + "<br />" + "<span style='color:#708090'>&#9876;</span>Weapon: ";
         
         if (weapon == null) {
             status += "None";
@@ -67,7 +72,7 @@ public class Game {
         int x = 0;
         int y = 0;
         
-        for (Card[] row : cardGrid.getCardGrid()) {
+        for (Card[] row : cardGrid.getGrid()) {
             for (Card card : row) {
                 JPanel cardPnl = _Card.display(card);
                 frame.addPnl(cardPnl, gridPnl, x, y);
