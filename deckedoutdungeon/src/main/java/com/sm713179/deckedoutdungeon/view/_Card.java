@@ -29,6 +29,10 @@ public class _Card {
                 int cardY = cardHeight / 16;
                 int pnlWidth = cardWidth + cardWidth / 8;
                 int pnlHeight = cardHeight + cardWidth / 8;
+                int iconSize = cardWidth / 3 * 2;
+                int attributeSize = cardWidth / 5;
+                int attributeX = 0;
+                int attributeY = 0;
                 
                 //Panel
                 setSize(pnlWidth, pnlHeight);
@@ -41,106 +45,120 @@ public class _Card {
                         cardWidth - 4, cardHeight - 4, 25, 25);
                 
                 //Icon
-                int iconSize = cardWidth / 3 * 2;
                 ImageIcon icon = Icon.scale(card.getIconPath(), 
                         iconSize, iconSize);
                 icon.paintIcon(this, g, pnlWidth / 2 - iconSize / 2,
                         pnlHeight / 2 - iconSize / 2);
                 
-                //Attribute & Tooltips
-                int attributeSize = cardWidth / 5;
+                //Tooltips & Attributes
+                String toolTipTxt = "<html>" + card.getName() + " (";
+                ImageIcon attribute;
                 String attributePath =
                         "src/main/java/com/sm713179/deckedoutdungeon/content/icon/attribute/";
-                String toolTipTxt = "<html>" + card.getName() + " (";
+                Font font = new Font("TimesRoman", 
+                        Font.PLAIN, attributeSize / 3 * 2);
+                FontMetrics metrics = g.getFontMetrics(font);
+                g.setColor(Color.WHITE);
+                g.setFont(font);
                 
                 if (card.isType("Mob")) {
-                    ImageIcon heart = Icon.scale(attributePath + "heart.png",
-                            attributeSize, attributeSize);
-                    heart.paintIcon(this, g, cardWidth - attributeSize,
-                            cardY + cardX);
-                    
                     Mob mob = (Mob) card;
-                    
-                    //Add txt to heart
-                    g.setColor(Color.WHITE);
-                    g.setFont(new Font("TimesRoman", Font.PLAIN, attributeSize / 4 * 3)); 
-                    g.drawString(Integer.toString(mob.getHp()),  cardWidth - attributeSize / 3 * 2,  cardY + cardX + attributeSize / 3 * 2);
+                    String hp = Integer.toString(mob.getHp());
                     
                     toolTipTxt += "Mob)<br />" + "HP: "
-                            + mob.getHp() + "/" + mob.getMaxHp();
+                            + hp + "/" + mob.getMaxHp();
+                    
+                    attributeX = cardWidth - attributeSize;
+                    attributeY = cardY + cardX;
+                    attribute = Icon.scale(attributePath + "heart.png",
+                            attributeSize, attributeSize);
+                    attribute.paintIcon(this, g, attributeX, attributeY);  
+                    Icon.addLbl(g, attribute, metrics, hp,
+                            attributeX, attributeY);
                     
                 } else if (card.isType("Item")) {
                     Item item = (Item) card;
+                    String value = Integer.toString(item.getValue());
                     
                     toolTipTxt += "Item)";
                     
                     if (!item.getItemType().equals("EXIT")) {
-                        ImageIcon star = Icon.scale(attributePath + "star.png",
-                            attributeSize, attributeSize);
-                        star.paintIcon(this, g, cardWidth - attributeSize,
-                            cardHeight - cardX * 3);
-                        
-                        //Display txt on attribute
-                        
                         toolTipTxt += "<br />" + item.getItemType()
-                                + ": " + item.getValue();
+                                + ": " + value;
+                        
+                        attributeX = cardWidth - attributeSize;
+                        attributeY = cardHeight - cardX * 3;
+                        attribute = Icon.scale(attributePath + "star.png",
+                            attributeSize, attributeSize);
+                        attribute.paintIcon(this, g, attributeX, attributeY);
+                        Icon.addLbl(g, attribute, metrics, value,
+                                attributeX, attributeY);
                     }
                 } else if (card.isType("Weapon")) {
-                    ImageIcon diamond = Icon.scale(attributePath + "diamond.png",
-                            attributeSize, attributeSize);
-                    diamond.paintIcon(this, g, cardX * 2,
-                            cardHeight - cardX * 3);
-                    
                     Weapon weapon = (Weapon) card;
-                        
-                    //Add txt to diamond
-                        
-                    toolTipTxt += "Weapon)<br />Durability: "
-                            + weapon.getDurability();
-
+                    String durability = Integer.toString(weapon.getDurability());
+                    
+                    toolTipTxt += "Weapon)<br />Durability: " + durability;
+                    
+                    attributeX = cardX * 2;
+                    attributeY = cardHeight - cardX * 3;
+                    attribute= Icon.scale(attributePath + "diamond.png",
+                            attributeSize, attributeSize);
+                    attribute.paintIcon(this, g, attributeX, attributeY);
+                    Icon.addLbl(g, attribute, metrics, durability,
+                            attributeX, attributeY);
+                    
                 } else if (card.isType("Misc")) {
                     toolTipTxt += "Misc)";
                 
                 } else if (card.isType("Trap")) {
                     Trap trap = (Trap) card;
+                    String dmg = Integer.toString(trap.getDmg());
                     
-                    if (trap.isActive()) {
-                        ImageIcon diamond = Icon.scale(attributePath + "diamond.png",
-                            attributeSize, attributeSize);
-                        diamond.paintIcon(this, g, cardX * 2,
-                            cardHeight - cardX * 3);
-                    }
-                    
-                    toolTipTxt += "Trap)<br />Damage: " + trap.getDmg()
+                    toolTipTxt += "Trap)<br />Damage: " + dmg
                             + "<br />Active: " + trap.isActive();
                     
-                } else if (card.isType("Player")) {
-                    ImageIcon heart = Icon.scale(attributePath + "heart.png",
+                    if (trap.isActive()) {
+                        attributeX = cardX * 2;
+                        attributeY = cardHeight - cardX * 3;
+                        attribute = Icon.scale(attributePath + "diamond.png",
                             attributeSize, attributeSize);
-                    heart.paintIcon(this, g, cardWidth - attributeSize,
-                            cardY + cardX);
-                    
+                        attribute.paintIcon(this, g, attributeX,attributeY);
+                        Icon.addLbl(g, attribute, metrics, dmg,
+                                attributeX, attributeY);
+                    }
+                } else if (card.isType("Player")) {
                     Player player = (Player) card;
                     Weapon weapon = player.getWeapon();
+                    String hp = Integer.toString(player.getHp());
                     
-                    g.setColor(Color.WHITE);
-                    g.setFont(new Font("TimesRoman", Font.PLAIN, attributeSize / 4 * 3)); 
-                    g.drawString(Integer.toString(player.getHp()),  cardWidth - attributeSize / 3 * 2,  cardY + cardX + attributeSize / 3 * 2);
-                        
-                    toolTipTxt += "Player)<br />" + "HP: " + player.getHp()
-                            + "/" + player.getMaxHp() + "<br />Weapon: ";
-                        
+                    toolTipTxt += "Player)<br />" + "HP: " + hp + "/"
+                            + player.getMaxHp() + "<br />Weapon: ";
+                    
+                    attributeX = cardWidth - attributeSize;
+                    attributeY = cardY + cardX;
+                    attribute = Icon.scale(attributePath + "heart.png",
+                            attributeSize, attributeSize);
+                    attribute.paintIcon(this, g, attributeX, attributeY);  
+                    Icon.addLbl(g, attribute, metrics, hp,
+                            attributeX, attributeY);
+                    
                     if (weapon == null) {
                         toolTipTxt += "None";
+                        
                     } else {
-                        toolTipTxt += weapon.getName() + " ("
-                                + weapon.getDurability() + "/"
+                        String durability = Integer.toString(weapon.getDurability());
+                        
+                        toolTipTxt += weapon.getName() + " (" + durability + "/"
                                 + weapon.getMaxDurability() + ")";
                         
-                        ImageIcon diamond = Icon.scale(attributePath + "diamond.png",
+                        attributeX = cardX * 2;
+                        attributeY = cardHeight - cardX * 3;
+                        attribute = Icon.scale(attributePath + "diamond.png",
                             attributeSize, attributeSize);
-                        diamond.paintIcon(this, g, cardX * 2,
-                            cardHeight - cardX * 3);
+                        attribute.paintIcon(this, g, attributeX,attributeY);
+                        Icon.addLbl(g, attribute, metrics, durability,
+                                attributeX, attributeY);
                     }
                 }
                 toolTipTxt += "</html>";
