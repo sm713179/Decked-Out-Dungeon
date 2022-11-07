@@ -5,7 +5,6 @@
 package com.sm713179.deckedoutdungeon.model.card.collection;
 
 import com.sm713179.deckedoutdungeon.model.card.Card;
-import com.sm713179.deckedoutdungeon.model.card.Player;
 
 /**
  *
@@ -13,11 +12,13 @@ import com.sm713179.deckedoutdungeon.model.card.Player;
  */
 public class CardGrid {
     Card[][] grid;
+    Deck deck;
     int rows, cols;
 
     //Boilerplate
-    public CardGrid(int rows, int cols) {
+    public CardGrid(Deck deck, int rows, int cols) {
         grid = new Card[rows][cols];
+        this.deck = deck;
         this.rows = rows;
         this.cols = cols;
     }
@@ -27,24 +28,15 @@ public class CardGrid {
     }
 
     public int getRows() {
-        return rows - 1;
+        return rows;
     }
 
     public int getCols() {
-        return cols - 1;
+        return cols;
     }
     
     //Methods
-    public int[] spawnPlayer(Player player) {
-        int row = rows / 2;
-        int col = (cols - 1) / 2;
-        
-        grid[row][col] = player;
-        
-        return new int[] {row, col};
-    } 
-    
-    public void populate(Deck deck) {
+    public void populate() {
         for (int x = 0; x < rows; x++) { 
             for(int y = 0; y < cols; y++) {
                 if (grid[x][y] == null) {
@@ -72,32 +64,48 @@ public class CardGrid {
     public void shiftCards(char direction, int displacerRow, int displacerCol) {
         switch (direction) {
             case 'U':
-                grid[displacerRow - 1][displacerCol] = grid[displacerRow][displacerCol];
+                deck.bury(grid[displacerRow - 1][displacerCol]);
+                grid[displacerRow - 1][displacerCol] =
+                        grid[displacerRow][displacerCol];
                 
                 for (int row = displacerRow; row < rows - 1; row++) {
                     grid[row][displacerCol] = grid[row + 1][displacerCol];
                 }
+                
+                grid[rows - 1][displacerCol] = deck.draw();
                 break;
             case 'L':
-                grid[displacerRow][displacerCol - 1] = grid[displacerRow][displacerCol];
+                deck.bury(grid[displacerRow][displacerCol - 1]);
+                grid[displacerRow][displacerCol - 1] =
+                        grid[displacerRow][displacerCol];
                 
                 for (int col = displacerCol; col < cols - 1; col++) {
                     grid[displacerRow][col] = grid[displacerRow][col + 1];
                 }
+                
+                grid[displacerRow][cols - 1] = deck.draw();
                 break;
             case 'D':
-                grid[displacerRow + 1][displacerCol] = grid[displacerRow][displacerCol];
+                deck.bury(grid[displacerRow + 1][displacerCol]);
+                grid[displacerRow + 1][displacerCol] =
+                        grid[displacerRow][displacerCol];
                 
                 for (int row = displacerRow; row > 0; row--) {
                     grid[row][displacerCol] = grid[row - 1][displacerCol];
                 }
+                
+                grid[0][displacerCol] = deck.draw();
                 break;
             case 'R':
-                grid[displacerRow][displacerCol + 1] = grid[displacerRow][displacerCol];
+                deck.bury(grid[displacerRow][displacerCol + 1]);
+                grid[displacerRow][displacerCol + 1] =
+                        grid[displacerRow][displacerCol];
                 
                 for (int col = displacerCol; col > 0; col--) {
                     grid[displacerRow][col] = grid[displacerRow][col - 1];
                 }
+                
+                grid[displacerRow][0] = deck.draw();
                 break;
         }
     }

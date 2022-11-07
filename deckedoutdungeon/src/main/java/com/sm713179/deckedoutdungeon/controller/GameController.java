@@ -20,7 +20,6 @@ import java.awt.event.KeyListener;
 public class GameController implements KeyListener {
     Frame frame = new Frame();
     Player player;
-    Deck deck;
     CardGrid cardGrid;
     int playerRow, playerCol, level, score;
 
@@ -31,10 +30,6 @@ public class GameController implements KeyListener {
     
     public Player getPlayer() {
         return player;
-    }
-
-    public Deck getDeck() {
-        return deck;
     }
 
     public CardGrid getCardGrid() {
@@ -50,6 +45,10 @@ public class GameController implements KeyListener {
     }
     
     //Methods
+    public int getHighScore() {
+        return 0; //get from txt
+    }
+    
     public void displayMenu() {
         Menu.display(this);
     }
@@ -60,12 +59,12 @@ public class GameController implements KeyListener {
         player = new Player(10, 12, weapon,
                 "Player", "player/default");
 
-        deck = DeckParser.read("crypt");
-        cardGrid = new CardGrid(3, 4);
-        int[] playerLocation = cardGrid.spawnPlayer(player);
-        playerRow = playerLocation[0];
-        playerCol = playerLocation[1];
-        cardGrid.populate(deck);
+        Deck deck = DeckParser.read("crypt");
+        cardGrid = new CardGrid(deck, 3, 4);
+        playerRow = cardGrid.getRows() / 2;
+        playerCol = (cardGrid.getCols() - 1) / 2;
+        cardGrid.setCard(playerRow, playerCol, player); //Spawn Player
+        cardGrid.populate();
         
         level = 0;
         score = 0;
@@ -84,12 +83,11 @@ public class GameController implements KeyListener {
                 if (target != null) {
                     //check card types
                     
-                    deck.bury(target);
                     cardGrid.shiftCards('U',
                             playerRow, playerCol);
-                    cardGrid.setCard(cardGrid.getRows(), playerCol,
-                            deck.draw());
                     playerRow -= 1;
+                    
+                    Game.display(this);
                 }
             }
             case 65, 37 -> { //Left
@@ -98,12 +96,11 @@ public class GameController implements KeyListener {
                 if (target != null) {
                     //check card types
                     
-                    deck.bury(target);
                     cardGrid.shiftCards('L',
                             playerRow, playerCol);
-                    cardGrid.setCard(playerRow, cardGrid.getCols(), 
-                            deck.draw());
                     playerCol -= 1;
+                    
+                    Game.display(this);
                 }
             }
             case 83, 40 -> { //Down
@@ -112,12 +109,11 @@ public class GameController implements KeyListener {
                 if (target != null) {
                     //check card types
                     
-                    deck.bury(target);
                     cardGrid.shiftCards('D',
                             playerRow, playerCol);
-                    cardGrid.setCard(0, playerCol,
-                            deck.draw());
                     playerRow += 1;
+                    
+                    Game.display(this);
                 }
             }
             case 68, 39 -> { //Right
@@ -125,18 +121,21 @@ public class GameController implements KeyListener {
                 
                 if (target != null) {
                     //check card types
-                    
-                    deck.bury(target);
+
                     cardGrid.shiftCards('R',
                             playerRow, playerCol);
-                    cardGrid.setCard(playerRow, 0, 
-                            deck.draw());
                     playerCol += 1;
+                    
+                    Game.display(this);
                 }
             }
         }
-        //should be nested in switch to prevent flashing
-        Game.display(this);
+        if (player.isDead()) {
+            if (score > getHighScore()) {
+                //scoreParser.write(score)
+            }
+            displayMenu();
+        }
     }
    
     @Override
