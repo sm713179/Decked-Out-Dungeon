@@ -22,15 +22,15 @@ public class Menu {
         int latestScore = gameState.getScore();
         int highScore = gameState.getHighScore();
         
+        frame.reset();
+        frame.setMainPnlLayout(new GridBagLayout());
+        JPanel pnl = new JPanel(new FlowLayout());
+        
         boolean isGameOver = false;
         Player player = gameState.getPlayer();
         if(player != null) {
             isGameOver = player.isDead();
         }
-        
-        frame.reset();
-        frame.setMainPnlLayout(new GridBagLayout());
-        JPanel pnl = new JPanel(new FlowLayout());
         
         String head = "Decked Out Dungeon";
         String btnTxt = "&#9654;New Game";

@@ -22,6 +22,7 @@ public class GameController implements KeyListener {
     Player player;
     CardGrid cardGrid;
     int playerRow, playerCol, level, score;
+    int highScore = 0; //get from txt
 
     //Boilerplate
     public Frame getFrame() {
@@ -44,11 +45,11 @@ public class GameController implements KeyListener {
         return score;
     }
     
-    //Methods
     public int getHighScore() {
-        return 0; //get from txt
+        return highScore;
     }
     
+    //Methods
     public void displayMenu() {
         Menu.display(this);
     }
@@ -131,8 +132,9 @@ public class GameController implements KeyListener {
             }
         }
         if (player.isDead()) {
-            if (score > getHighScore()) {
+            if (score > highScore) {
                 //scoreParser.write(score)
+                highScore = score;
             }
             displayMenu();
         }
