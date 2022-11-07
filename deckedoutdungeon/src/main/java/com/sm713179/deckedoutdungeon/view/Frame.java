@@ -6,6 +6,7 @@ package com.sm713179.deckedoutdungeon.view;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 import javax.swing.*;
 
 /**
@@ -17,13 +18,17 @@ public class Frame {
     JPanel mainPnl = new JPanel();
     GridBagConstraints gbc = new GridBagConstraints();
     
+    
     //Frame
     public void display() {
         Dimension resolution = Toolkit.getDefaultToolkit().getScreenSize();
+        mainPnl.setPreferredSize(resolution); //reduces flicker
         frame.add(mainPnl, BorderLayout.CENTER);
+        frame.requestFocus();
+        frame.setFocusable(true); 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        frame.setSize(resolution.width, resolution.height);
+        frame.setSize(resolution);
         frame.setVisible(true);
     }
     
@@ -31,6 +36,10 @@ public class Frame {
         mainPnl.removeAll();
         mainPnl.revalidate();
         mainPnl.repaint();
+    }
+    
+    public void addKeyListener(KeyListener keyListener) {
+        frame.addKeyListener(keyListener);
     }
 
     //Panels

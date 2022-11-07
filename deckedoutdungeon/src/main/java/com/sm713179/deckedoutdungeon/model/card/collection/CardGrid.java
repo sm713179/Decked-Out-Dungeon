@@ -27,11 +27,11 @@ public class CardGrid {
     }
 
     public int getRows() {
-        return rows;
+        return rows - 1;
     }
 
     public int getCols() {
-        return cols;
+        return cols - 1;
     }
     
     //Methods
@@ -58,10 +58,47 @@ public class CardGrid {
     }
     
     public Card getCard(int row, int col) {
-        return grid[row][col];
+        try {
+            return grid[row][col];
+        } catch (Exception e) {
+            return null;
+        }
     }
     
     public void setCard(int row, int col, Card card) {
         grid[row][col] = card;
+    }
+    
+    public void shiftCards(char direction, int displacerRow, int displacerCol) {
+        switch (direction) {
+            case 'U':
+                grid[displacerRow - 1][displacerCol] = grid[displacerRow][displacerCol];
+                
+                for (int row = displacerRow; row < rows - 1; row++) {
+                    grid[row][displacerCol] = grid[row + 1][displacerCol];
+                }
+                break;
+            case 'L':
+                grid[displacerRow][displacerCol - 1] = grid[displacerRow][displacerCol];
+                
+                for (int col = displacerCol; col < cols - 1; col++) {
+                    grid[displacerRow][col] = grid[displacerRow][col + 1];
+                }
+                break;
+            case 'D':
+                grid[displacerRow + 1][displacerCol] = grid[displacerRow][displacerCol];
+                
+                for (int row = displacerRow; row > 0; row--) {
+                    grid[row][displacerCol] = grid[row - 1][displacerCol];
+                }
+                break;
+            case 'R':
+                grid[displacerRow][displacerCol + 1] = grid[displacerRow][displacerCol];
+                
+                for (int col = displacerCol; col > 0; col--) {
+                    grid[displacerRow][col] = grid[displacerRow][col - 1];
+                }
+                break;
+        }
     }
 }

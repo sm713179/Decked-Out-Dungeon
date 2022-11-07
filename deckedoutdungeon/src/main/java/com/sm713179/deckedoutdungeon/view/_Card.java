@@ -31,8 +31,8 @@ public class _Card {
                 int pnlHeight = cardHeight + cardWidth / 8;
                 int iconSize = cardWidth / 3 * 2;
                 int attributeSize = cardWidth / 5;
-                int attributeX = 0;
-                int attributeY = 0;
+                int attributeX;
+                int attributeY;
                 
                 //Panel
                 setSize(pnlWidth, pnlHeight);

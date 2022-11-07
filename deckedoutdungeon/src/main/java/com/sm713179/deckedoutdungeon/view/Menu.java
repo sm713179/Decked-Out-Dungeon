@@ -19,8 +19,8 @@ public class Menu {
     
     public static void display(GameController gameState) {
         Frame frame = gameState.getFrame();
-        int highScore = gameState.getHighScore();
         int latestScore = gameState.getScore();
+        int highScore = 0; //get from txt
         
         boolean isGameOver = false;
         Player player = gameState.getPlayer();
