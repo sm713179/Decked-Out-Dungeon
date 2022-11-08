@@ -81,10 +81,8 @@ public class Game {
             x = 0;
             y++;
         }
-        
         frame.addPnl(gridPnl, 2, 0);
     }
-
     
     public static void displayLog(Frame frame) { //accept log later
         JPanel pnl = new JPanel();

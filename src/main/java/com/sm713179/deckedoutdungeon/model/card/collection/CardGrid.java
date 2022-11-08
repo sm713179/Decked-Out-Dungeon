@@ -63,7 +63,7 @@ public class CardGrid {
     
     public void shiftCards(char direction, int displacerRow, int displacerCol) {
         switch (direction) {
-            case 'U':
+            case 'U' -> {
                 deck.bury(grid[displacerRow - 1][displacerCol]);
                 grid[displacerRow - 1][displacerCol] =
                         grid[displacerRow][displacerCol];
@@ -73,8 +73,8 @@ public class CardGrid {
                 }
                 
                 grid[rows - 1][displacerCol] = deck.draw();
-                break;
-            case 'L':
+            }
+            case 'L' -> {
                 deck.bury(grid[displacerRow][displacerCol - 1]);
                 grid[displacerRow][displacerCol - 1] =
                         grid[displacerRow][displacerCol];
@@ -84,8 +84,8 @@ public class CardGrid {
                 }
                 
                 grid[displacerRow][cols - 1] = deck.draw();
-                break;
-            case 'D':
+            }
+            case 'D' -> {
                 deck.bury(grid[displacerRow + 1][displacerCol]);
                 grid[displacerRow + 1][displacerCol] =
                         grid[displacerRow][displacerCol];
@@ -95,8 +95,8 @@ public class CardGrid {
                 }
                 
                 grid[0][displacerCol] = deck.draw();
-                break;
-            case 'R':
+            }
+            case 'R' -> {
                 deck.bury(grid[displacerRow][displacerCol + 1]);
                 grid[displacerRow][displacerCol + 1] =
                         grid[displacerRow][displacerCol];
@@ -106,7 +106,7 @@ public class CardGrid {
                 }
                 
                 grid[displacerRow][0] = deck.draw();
-                break;
+            }
         }
     }
 }

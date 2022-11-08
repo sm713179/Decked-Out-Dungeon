@@ -39,7 +39,8 @@ public class Menu {
             btnTxt = "&#8617;Try Again";
         }
         
-        frame.addLbl("<html><h1 style='font-size:8em;'>" + head + "</hl></html>", 0, 0);
+        frame.addLbl("<html><h1 style='font-size:8em;'>" + head
+                + "</hl></html>", 0, 0);
         frame.addBtn("<html><h2 style='font-size:4em;'>" + btnTxt + "</h2></html>", 
                 "Start a new game", pnl, (ActionEvent e) -> {
                     gameState.start();
