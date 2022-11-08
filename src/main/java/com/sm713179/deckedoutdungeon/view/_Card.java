@@ -52,8 +52,7 @@ public class _Card {
                 //Tooltips & Attributes
                 String toolTipTxt = "<html>" + card.getName() + " (";
                 ImageIcon attribute;
-                String attributePath =
-                        "src/main/java/com/sm713179/deckedoutdungeon/content/icon/attribute/";
+                String attributePath = "content/asset/attribute/";
                 Font font = new Font("TimesRoman", 
                         Font.PLAIN, attributeSize / 3 * 2);
                 FontMetrics metrics = g.getFontMetrics(font);

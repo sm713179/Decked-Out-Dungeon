@@ -26,8 +26,7 @@ public class DeckParser {
         
         try {
             DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.parse(new File("src/main/java/com/sm713179/deckedoutdungeon/content/deck/"
-                    + deckPath + ".xml"));
+            Document doc = db.parse(new File("content/deck/" + deckPath + ".xml"));
             doc.getDocumentElement().normalize();
             
             String name, iconPath, altIconPath, cardType;

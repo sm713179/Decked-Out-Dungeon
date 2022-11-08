@@ -22,8 +22,7 @@ public abstract class Card {
     }
 
     public String getIconPath() {
-        return "src/main/java/com/sm713179/deckedoutdungeon/content/icon/"
-                + iconPath + ".png";
+        return "content/asset/" + iconPath + ".png";
     }
     
     //Methods
