@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 public class _Card {
     
     public static JPanel display(Card card) {
-        JPanel pnl = new JPanel() {
+        return new JPanel() {
             
             @Override
             public void paintComponent(Graphics g) {
@@ -87,7 +87,7 @@ public class _Card {
                         attributeX = cardWidth - attributeSize;
                         attributeY = cardHeight - cardX * 3;
                         attribute = Icon.scale(attributePath + "star.png",
-                            attributeSize, attributeSize);
+                                attributeSize, attributeSize);
                         attribute.paintIcon(this, g, attributeX, attributeY);
                         Icon.addLbl(g, attribute, metrics, value,
                                 attributeX, attributeY);
@@ -120,7 +120,7 @@ public class _Card {
                         attributeX = cardX * 2;
                         attributeY = cardHeight - cardX * 3;
                         attribute = Icon.scale(attributePath + "diamond.png",
-                            attributeSize, attributeSize);
+                                attributeSize, attributeSize);
                         attribute.paintIcon(this, g, attributeX,attributeY);
                         Icon.addLbl(g, attribute, metrics, dmg,
                                 attributeX, attributeY);
@@ -153,7 +153,7 @@ public class _Card {
                         attributeX = cardX * 2;
                         attributeY = cardHeight - cardX * 3;
                         attribute = Icon.scale(attributePath + "diamond.png",
-                            attributeSize, attributeSize);
+                                attributeSize, attributeSize);
                         attribute.paintIcon(this, g, attributeX,attributeY);
                         Icon.addLbl(g, attribute, metrics, durability,
                                 attributeX, attributeY);
@@ -163,6 +163,5 @@ public class _Card {
                 setToolTipText(toolTipTxt);
             }
         };
-        return pnl;
     }
 }

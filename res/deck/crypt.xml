@@ -68,7 +68,7 @@
 		<name>Coin</name>
 		<icon>item/coin_gold</icon>
 		<itemType>SCORE</itemType>
-		<value>0</value>
+		<value>3</value>
 	</card>
 	<card>
 		<type>Item</type>
