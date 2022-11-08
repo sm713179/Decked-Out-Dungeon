@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.sm713179.deckedoutdungeon.view;
+package com.sm713179.deckedoutdungeon.ui;
 
-import com.sm713179.deckedoutdungeon.controller.GameController;
-import com.sm713179.deckedoutdungeon.model.card.*;
-import com.sm713179.deckedoutdungeon.model.card.collection.CardGrid;
+import com.sm713179.deckedoutdungeon.GameController;
+import com.sm713179.deckedoutdungeon.card.*;
+import com.sm713179.deckedoutdungeon.card.collection.CardGrid;
 import java.awt.*;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;

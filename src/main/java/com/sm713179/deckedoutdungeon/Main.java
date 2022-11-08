@@ -5,8 +5,6 @@
 
 package com.sm713179.deckedoutdungeon;
 
-import com.sm713179.deckedoutdungeon.controller.GameController;
-
 /**
  *
  * @author Samuel McClatchey

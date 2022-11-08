@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.sm713179.deckedoutdungeon.view;
+package com.sm713179.deckedoutdungeon.ui;
 
+import com.sm713179.deckedoutdungeon.card.*;
 import com.sm713179.deckedoutdungeon.util.graphic.*;
-import com.sm713179.deckedoutdungeon.model.card.*;
 import java.awt.*;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -52,7 +52,7 @@ public class _Card {
                 //Tooltips & Attributes
                 String toolTipTxt = "<html>" + card.getName() + " (";
                 ImageIcon attribute;
-                String attributePath = "content/asset/attribute/";
+                String attributePath = "asset/attribute/";
                 Font font = new Font("TimesRoman", 
                         Font.PLAIN, attributeSize / 3 * 2);
                 FontMetrics metrics = g.getFontMetrics(font);

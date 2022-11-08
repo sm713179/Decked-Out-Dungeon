@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.sm713179.deckedoutdungeon.view;
+package com.sm713179.deckedoutdungeon.ui;
 
-import com.sm713179.deckedoutdungeon.controller.GameController;
-import com.sm713179.deckedoutdungeon.model.card.Player;
+import com.sm713179.deckedoutdungeon.GameController;
+import com.sm713179.deckedoutdungeon.card.Player;
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -20,7 +20,6 @@ public class Menu {
     public static void display(GameController gameState) {
         Frame frame = gameState.getFrame();
         int latestScore = gameState.getScore();
-        int highScore = gameState.getHighScore();
         
         frame.reset();
         frame.setMainPnlLayout(new GridBagLayout());
@@ -51,14 +50,13 @@ public class Menu {
                     System.exit(0);
         });
         frame.addPnl(pnl, 0, 1);
-        frame.addLbl("<html><h2 style='font-size:4em;'>High Score: " + highScore
-                + "</h2></html>", 0, 2);
+        frame.addLbl("<html><h2 style='font-size:4em;'>High Score: "
+                + gameState.getHighScore() + "</h2></html>", 0, 2);
         
         if (latestScore != 0) {
             frame.addLbl("<html><h2 style='font-size:4em;'>Latest Score: "
                     + latestScore + "</h2></html>", 0, 3);
         }
-        
         frame.display();
     }
 }

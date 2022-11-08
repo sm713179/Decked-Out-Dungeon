@@ -4,8 +4,8 @@
  */
 package com.sm713179.deckedoutdungeon.util.parser;
 
-import com.sm713179.deckedoutdungeon.model.card.*;
-import com.sm713179.deckedoutdungeon.model.card.collection.Deck;
+import com.sm713179.deckedoutdungeon.card.*;
+import com.sm713179.deckedoutdungeon.card.collection.Deck;
 import java.io.File;
 import java.io.IOException;
 import static java.lang.Integer.parseInt;
@@ -26,7 +26,7 @@ public class DeckParser {
         
         try {
             DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.parse(new File("content/deck/" + deckPath + ".xml"));
+            Document doc = db.parse(new File("res/deck/" + deckPath + ".xml"));
             doc.getDocumentElement().normalize();
             
             String name, iconPath, altIconPath, cardType;

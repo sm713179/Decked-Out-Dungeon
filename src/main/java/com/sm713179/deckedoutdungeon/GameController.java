@@ -2,14 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.sm713179.deckedoutdungeon.controller;
+package com.sm713179.deckedoutdungeon;
 
-import com.sm713179.deckedoutdungeon.view.Game;
-import com.sm713179.deckedoutdungeon.model.card.collection.*;
+import com.sm713179.deckedoutdungeon.card.*;
+import com.sm713179.deckedoutdungeon.card.collection.*;
+import com.sm713179.deckedoutdungeon.ui.*;
 import com.sm713179.deckedoutdungeon.util.parser.DeckParser;
-import com.sm713179.deckedoutdungeon.model.card.*;
-import com.sm713179.deckedoutdungeon.view.Frame;
-import com.sm713179.deckedoutdungeon.view.Menu;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -55,6 +53,12 @@ public class GameController implements KeyListener {
     }
     
     public void start() {
+        init();
+        Game.display(this);
+        frame.addKeyListener(this);
+    }
+    
+    public void init() {
         Weapon weapon = new Weapon(3, 
                 "Sword", "weapon/sword_iron");
         player = new Player(10, 12, weapon,
@@ -69,12 +73,9 @@ public class GameController implements KeyListener {
         
         level = 0;
         score = 0;
-        
-        Game.display(this);
-        frame.addKeyListener(this);
     }
     
-    public void move(int keyCode) {
+    public void action(int keyCode) {
         Card target;
         
         switch (keyCode) {
@@ -142,7 +143,7 @@ public class GameController implements KeyListener {
    
     @Override
     public void keyPressed(KeyEvent e) {
-        move(e.getKeyCode());
+        action(e.getKeyCode());
     }
     
     //Unused
