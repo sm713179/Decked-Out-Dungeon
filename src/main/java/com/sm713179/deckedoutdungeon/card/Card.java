@@ -27,7 +27,7 @@ public abstract class Card {
     
     //Methods
     public boolean isType(String type) {
-        type = "class com.sm713179.deckedoutdungeon.model.card." + type;
+        type = "class com.sm713179.deckedoutdungeon.card." + type;
         return type.equals(this.getClass().toString());
     }
 }

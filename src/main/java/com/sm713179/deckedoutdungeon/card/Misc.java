@@ -4,8 +4,6 @@
  */
 package com.sm713179.deckedoutdungeon.card;
 
-import com.sm713179.deckedoutdungeon.card.Card;
-
 /**
  *
  * @author Samuel McClatchey
