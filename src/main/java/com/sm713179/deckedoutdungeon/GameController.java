@@ -19,6 +19,7 @@ public class GameController implements KeyListener {
     Frame frame = new Frame();
     Player player;
     CardGrid cardGrid;
+    Card target;
     int playerRow, playerCol, level, score;
     int highScore = 0; //get from txt
 
@@ -75,9 +76,12 @@ public class GameController implements KeyListener {
         score = 0;
     }
     
-    public void action(int keyCode) {
-        Card target;
-        
+    public void updatePlayer() {
+        cardGrid.setCard(playerRow, playerCol, player);
+    }
+    
+    //Actions
+    public void move(int keyCode) {
         switch (keyCode) {
             case 87, 38 -> {  //Up
                 target = cardGrid.getCard(playerRow - 1, playerCol);
@@ -88,6 +92,7 @@ public class GameController implements KeyListener {
                     cardGrid.shiftCards('U',
                             playerRow, playerCol);
                     playerRow -= 1;
+                    interact();
                     
                     Game.display(this);
                 }
@@ -101,6 +106,7 @@ public class GameController implements KeyListener {
                     cardGrid.shiftCards('L',
                             playerRow, playerCol);
                     playerCol -= 1;
+                    interact();
                     
                     Game.display(this);
                 }
@@ -114,6 +120,7 @@ public class GameController implements KeyListener {
                     cardGrid.shiftCards('D',
                             playerRow, playerCol);
                     playerRow += 1;
+                    interact();
                     
                     Game.display(this);
                 }
@@ -127,6 +134,7 @@ public class GameController implements KeyListener {
                     cardGrid.shiftCards('R',
                             playerRow, playerCol);
                     playerCol += 1;
+                    interact();
                     
                     Game.display(this);
                 }
@@ -140,10 +148,46 @@ public class GameController implements KeyListener {
             displayMenu();
         }
     }
+    
+    public void attack() {
+        if (target.isType("Mob")) {
+            //WIP
+        }
+    }
+    
+    public void interact() {
+        if (target.isType("Item")) {
+            Item item = (Item) target;
+            String itemType = item.getItemType();
+            int value = item.getValue();
+            
+            switch (itemType) {
+                case "HEAL" -> {
+                }
+                case "SCORE" -> {
+                    score += value;
+                }
+                case "REPAIR" -> {
+                }
+                case "EXIT" -> {
+                    level += 1;
+                    score += 10;
+                    cardGrid.populate();
+                }
+            }
+        } else if (target.isType("Weapon")) {
+            Weapon weapon = (Weapon) target;
+            player.setWeapon(weapon);
+            
+        } else if (target.isType("Trap")) {
+            
+        }
+        updatePlayer();
+    }
    
     @Override
     public void keyPressed(KeyEvent e) {
-        action(e.getKeyCode());
+        move(e.getKeyCode());
     }
     
     //Unused
