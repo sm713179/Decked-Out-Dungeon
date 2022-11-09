@@ -43,11 +43,9 @@ public class _Card {
                 RoundRect.paint(g, Color.WHITE, cardX + 2, cardY + 2, 
                         cardWidth - 4, cardHeight - 4, 25, 25);
                 
-                //Icon
+                //Set Icon
                 ImageIcon icon = Icon.scale(card.getIconPath(), 
                         iconSize, iconSize);
-                icon.paintIcon(this, g, pnlWidth / 2 - iconSize / 2,
-                        pnlHeight / 2 - iconSize / 2);
                 
                 //Tooltips & Attributes
                 String toolTipTxt = "<html>" + card.getName() + " (";
@@ -124,6 +122,9 @@ public class _Card {
                         attribute.paintIcon(this, g, attributeX,attributeY);
                         Icon.addLbl(g, attribute, metrics, dmg,
                                 attributeX, attributeY);
+                    } else {
+                        icon = Icon.scale(trap.getAltIconPath(), 
+                        iconSize, iconSize);
                     }
                 } else if (card.isType("Player")) {
                     Player player = (Player) card;
@@ -161,6 +162,10 @@ public class _Card {
                 }
                 toolTipTxt += "</html>";
                 setToolTipText(toolTipTxt);
+                
+                //Paint Icon
+                icon.paintIcon(this, g, pnlWidth / 2 - iconSize / 2,
+                        pnlHeight / 2 - iconSize / 2);
             }
         };
     }

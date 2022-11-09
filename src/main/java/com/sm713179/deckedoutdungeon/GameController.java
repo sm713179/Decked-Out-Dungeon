@@ -22,6 +22,7 @@ public class GameController implements KeyListener {
     Card target;
     int playerRow, playerCol, level, score;
     int highScore = 0; //get from txt
+    boolean areTrapsActive = true;
 
     //Boilerplate
     public Frame getFrame() {
@@ -74,6 +75,31 @@ public class GameController implements KeyListener {
         
         level = 0;
         score = 0;
+    }
+    
+    public void updatePlayer() {
+        if (player.isDead()) {
+            if (score > highScore) {
+                //scoreParser.write(score)
+                highScore = score;
+            }
+            displayMenu();
+        }
+        cardGrid.setCard(playerRow, playerCol,player);
+    }
+    
+    public void updateTraps() {
+        areTrapsActive = !areTrapsActive;
+        
+        for (Card[] row : cardGrid.getGrid()) {
+            for (Card card : row) {
+                if (card.isType("Trap")) {
+                    Trap trap = (Trap) card;
+                    trap.setActive(areTrapsActive);
+                    card = trap;
+                }
+            }
+        }
     }
     
     //Actions
@@ -136,14 +162,8 @@ public class GameController implements KeyListener {
                 }
             }
         }
-        if (player.isDead()) {
-            if (score > highScore) {
-                //scoreParser.write(score)
-                highScore = score;
-            }
-            displayMenu();
-        }
-        cardGrid.setCard(playerRow, playerCol,player); //Update Player
+        updatePlayer();
+        updateTraps();
     }
     
     public void attack() {

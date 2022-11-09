@@ -84,7 +84,7 @@
 		<name>Spikes</name>
 		<icon>trap/spikes</icon>
 		<dmg>2</dmg>
-		<altIcon>spikes_inactive</altIcon>
+		<altIcon>spikes_alt</altIcon>
 	</card>
 	<card>
 		<type>Item</type>

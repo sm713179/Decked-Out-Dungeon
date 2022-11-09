@@ -33,16 +33,7 @@ public class Trap extends Card {
         return "asset/trap/alt/" + altIconPath + ".png";
     }
 
-    //Methods
-    public void reactivate() {
-        active = true;
-    }
-    
-    public void toggleActive() {
-        if (active) {
-            active = false;
-        } else {
-            active = true;
-        }
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }
