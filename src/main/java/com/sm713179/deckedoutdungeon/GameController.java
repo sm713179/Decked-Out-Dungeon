@@ -76,10 +76,6 @@ public class GameController implements KeyListener {
         score = 0;
     }
     
-    public void updatePlayer() {
-        cardGrid.setCard(playerRow, playerCol, player);
-    }
-    
     //Actions
     public void move(int keyCode) {
         switch (keyCode) {
@@ -147,6 +143,7 @@ public class GameController implements KeyListener {
             }
             displayMenu();
         }
+        cardGrid.setCard(playerRow, playerCol,player); //Update Player
     }
     
     public void attack() {
@@ -163,11 +160,13 @@ public class GameController implements KeyListener {
             
             switch (itemType) {
                 case "HEAL" -> {
+                    player.heal(value);
                 }
                 case "SCORE" -> {
                     score += value;
                 }
                 case "REPAIR" -> {
+                    player.repairWeapon(value);
                 }
                 case "EXIT" -> {
                     level += 1;
@@ -180,9 +179,12 @@ public class GameController implements KeyListener {
             player.setWeapon(weapon);
             
         } else if (target.isType("Trap")) {
+            Trap trap = (Trap) target;
             
+            if (trap.isActive()) {
+                player.dmg(trap.getDmg());
+            }
         }
-        updatePlayer();
     }
    
     @Override

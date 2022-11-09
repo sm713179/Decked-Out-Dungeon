@@ -49,7 +49,7 @@ public class Player extends Card {
     }
     
     public boolean isDead() {
-        if (hp < 0) {
+        if (hp <= 0) {
             return true;
         } else {
             return false;
