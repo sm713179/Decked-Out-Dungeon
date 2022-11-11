@@ -10,6 +10,7 @@ import com.sm713179.deckedoutdungeon.ui.*;
 import com.sm713179.deckedoutdungeon.util.parser.DeckParser;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  *
@@ -173,10 +174,12 @@ public class GameController implements KeyListener {
                 
                 if (durability > hp) {
                     weapon.degrade(hp);
+                    score += ThreadLocalRandom.current().nextInt(2, 4);
                     return true;
                 
                 } else if (durability == hp) {
                     player.setWeapon(null);
+                    score += ThreadLocalRandom.current().nextInt(2, 4);
                     return true;
                     
                 } else {
