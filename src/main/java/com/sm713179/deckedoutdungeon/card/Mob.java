@@ -30,4 +30,8 @@ public class Mob extends Card {
     public void restoreHp() {
         hp = maxHp;
     }
+    
+    public void dmg(int ap) {
+        hp -= ap;
+    }
 }

@@ -44,16 +44,12 @@ public class Player extends Card {
         }
     }
     
-    public void dmg(int value) {
-        hp = hp - value;
+    public void dmg(int ap) {
+        hp = hp - ap;
     }
     
     public boolean isDead() {
-        if (hp <= 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return hp <= 0;
     }
     
     public void repairWeapon(int value) {

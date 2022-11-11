@@ -12,6 +12,10 @@ public class Weapon extends Card {
     int durability, maxDurability;
 
     //Boilerplate
+
+    public Weapon() {}
+    
+    
     public Weapon(int durability, String name, String iconPath) {
         super(name, iconPath);
         this.durability = durability;
@@ -36,5 +40,14 @@ public class Weapon extends Card {
         if (durability > maxDurability) {
             durability = maxDurability;
         }
+    }
+    
+    public void degrade(int ap) {
+        durability -= ap;
+    }
+    
+    public static Weapon copy(Weapon weapon) {
+        return new Weapon(weapon.durability, 
+                weapon.name, weapon.iconPath);
     }
 }

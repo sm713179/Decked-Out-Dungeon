@@ -22,7 +22,7 @@ public class GameController implements KeyListener {
     Card target;
     int playerRow, playerCol, level, score;
     int highScore = 0; //get from txt
-    boolean areTrapsActive = true;
+    boolean trapsActive = true;
 
     //Boilerplate
     public Frame getFrame() {
@@ -89,13 +89,13 @@ public class GameController implements KeyListener {
     }
     
     public void updateTraps() {
-        areTrapsActive = !areTrapsActive;
+        trapsActive = !trapsActive;
         
         for (Card[] row : cardGrid.getGrid()) {
             for (Card card : row) {
                 if (card.isType("Trap")) {
                     Trap trap = (Trap) card;
-                    trap.setActive(areTrapsActive);
+                    trap.setActive(trapsActive);
                     card = trap;
                 }
             }
@@ -109,13 +109,12 @@ public class GameController implements KeyListener {
                 target = cardGrid.getCard(playerRow - 1, playerCol);
                 
                 if (target != null) {
-                    //check card types
-                    
-                    cardGrid.shiftCards('U',
-                            playerRow, playerCol);
-                    playerRow -= 1;
-                    interact();
-                    
+                    if (attack()) {
+                        cardGrid.shiftCards('U',
+                                playerRow, playerCol);
+                        playerRow -= 1;
+                        interact();
+                    }
                     Game.display(this);
                 }
             }
@@ -123,13 +122,12 @@ public class GameController implements KeyListener {
                 target = cardGrid.getCard(playerRow, playerCol - 1);
                 
                 if (target != null) {
-                    //check card types
-                    
-                    cardGrid.shiftCards('L',
-                            playerRow, playerCol);
-                    playerCol -= 1;
-                    interact();
-                    
+                    if (attack()) {
+                        cardGrid.shiftCards('L',
+                                playerRow, playerCol);
+                        playerCol -= 1;
+                        interact();
+                    }
                     Game.display(this);
                 }
             }
@@ -137,13 +135,12 @@ public class GameController implements KeyListener {
                 target = cardGrid.getCard(playerRow + 1, playerCol);
                 
                 if (target != null) {
-                    //check card types
-                    
-                    cardGrid.shiftCards('D',
-                            playerRow, playerCol);
-                    playerRow += 1;
-                    interact();
-                    
+                    if (attack()) {
+                        cardGrid.shiftCards('D',
+                                playerRow, playerCol);
+                        playerRow += 1;
+                        interact();
+                    }
                     Game.display(this);
                 }
             }
@@ -151,13 +148,12 @@ public class GameController implements KeyListener {
                 target = cardGrid.getCard(playerRow, playerCol + 1);
                 
                 if (target != null) {
-                    //check card types
-
-                    cardGrid.shiftCards('R',
-                            playerRow, playerCol);
-                    playerCol += 1;
-                    interact();
-                    
+                    if (attack()) {
+                        cardGrid.shiftCards('R',
+                                playerRow, playerCol);
+                        playerCol += 1;
+                        interact();
+                    }
                     Game.display(this);
                 }
             }
@@ -166,9 +162,34 @@ public class GameController implements KeyListener {
         updateTraps();
     }
     
-    public void attack() {
+    public boolean attack() {
         if (target.isType("Mob")) {
-            //WIP
+            Mob mob = (Mob) target;
+            int hp = mob.getHp();
+            
+            if (player.getWeapon() != null) {
+                Weapon weapon = player.getWeapon();
+                int durability = weapon.getDurability();
+                
+                if (durability > hp) {
+                    weapon.degrade(hp);
+                    return true;
+                
+                } else if (durability == hp) {
+                    player.setWeapon(null);
+                    return true;
+                    
+                } else {
+                    mob.dmg(durability);
+                    player.setWeapon(null);
+                    return false;
+                }
+            } else {
+                player.dmg(hp);
+                return true;
+            }
+        } else {
+            return true;
         }
     }
     
@@ -186,7 +207,9 @@ public class GameController implements KeyListener {
                     score += value;
                 }
                 case "REPAIR" -> {
-                    player.repairWeapon(value);
+                    if (player.getWeapon() != null) {
+                        player.repairWeapon(value);
+                    }
                 }
                 case "EXIT" -> {
                     level += 1;
@@ -195,7 +218,7 @@ public class GameController implements KeyListener {
                 }
             }
         } else if (target.isType("Weapon")) {
-            Weapon weapon = (Weapon) target;
+            Weapon weapon = Weapon.copy((Weapon) target);
             player.setWeapon(weapon);
             
         } else if (target.isType("Trap")) {
