@@ -5,6 +5,7 @@
 package com.sm713179.deckedoutdungeon.card.collection;
 
 import com.sm713179.deckedoutdungeon.card.Card;
+import com.sm713179.deckedoutdungeon.card.Item;
 import com.sm713179.deckedoutdungeon.card.Mob;
 import java.util.Collections;
 import java.util.Stack;
@@ -25,10 +26,18 @@ public class Deck {
         Card card = deck.pop();
         
         if (card.isType("Mob")) {
-            Mob mob = (Mob) card;
+            Mob mob = Mob.copy((Mob) card);
             mob.restoreHp();
+            card = mob;
+            
+        } else if (card.isType("Item")) {
+            Item item = Item.copy((Item) card);
+            
+            if (item.getItemType().equals("SCORE")) {
+                item.randomize();
+            }
+            card = item;
         }
-        
         return card;
     }
     

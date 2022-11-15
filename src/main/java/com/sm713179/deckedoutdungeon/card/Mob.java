@@ -34,4 +34,8 @@ public class Mob extends Card {
     public void dmg(int ap) {
         hp -= ap;
     }
+    
+    public static Mob copy(Mob mob) {
+        return new Mob(mob.hp, mob.name, mob.iconPath);
+    }
 }
