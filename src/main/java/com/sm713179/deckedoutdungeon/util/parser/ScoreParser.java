@@ -17,7 +17,7 @@ import java.io.Writer;
  */
 public class ScoreParser {
     
-    public static int readScore() {
+    public static int read() {
         int score = 0;
         
         try {
@@ -26,38 +26,38 @@ public class ScoreParser {
             String line = br.readLine();
             
             if (line == null) {
-                writeScore(0);
+                write(0);
             } else {
                 try {
                     score = Integer.parseInt(line);
                     
                 } catch (NumberFormatException e) {
-                    writeScore(0);
+                    write(0);
                 }
             }
             
         } catch (IOException e) {
-           createFile();
+           newFile();
         }
         return score;
     }
     
-    public static void writeScore(int score) {
-        try (Writer wr = new FileWriter("res/highScore.txt")) {
-            wr.write(score);
-            wr.close();
+    public static void write(int score) {
+        try (Writer w = new FileWriter("res/highScore.txt")) {
+            w.write(Integer.toString(score));
+            w.close();
             
         } catch (IOException e) {
-            createFile();
+            newFile();
         }
     }
     
-    public static void createFile() {
+    public static void newFile() {
          File highScore = new File("res/highScore.txt");
          
          try {
              highScore.createNewFile();
-             writeScore(0);
+             write(0);
              
          } catch (IOException e) {
              System.out.println("Failed to create highScore.txt");

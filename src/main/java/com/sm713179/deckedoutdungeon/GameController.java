@@ -8,6 +8,7 @@ import com.sm713179.deckedoutdungeon.card.*;
 import com.sm713179.deckedoutdungeon.card.collection.*;
 import com.sm713179.deckedoutdungeon.ui.*;
 import com.sm713179.deckedoutdungeon.util.parser.DeckParser;
+import com.sm713179.deckedoutdungeon.util.parser.ScoreParser;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.concurrent.ThreadLocalRandom;
@@ -22,7 +23,7 @@ public class GameController implements KeyListener {
     CardGrid cardGrid;
     Card target;
     int playerRow, playerCol, level, score;
-    int highScore = 0; //get from txt
+    int highScore = ScoreParser.read();
     boolean trapsActive = true;
 
     //Boilerplate
@@ -81,7 +82,7 @@ public class GameController implements KeyListener {
     public void updatePlayer() {
         if (player.isDead()) {
             if (score > highScore) {
-                //scoreParser.write(score)
+                ScoreParser.write(score);
                 highScore = score;
             }
             displayMenu();
