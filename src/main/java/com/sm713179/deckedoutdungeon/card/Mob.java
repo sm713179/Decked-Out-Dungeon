@@ -36,6 +36,6 @@ public class Mob extends Card {
     }
     
     public static Mob copy(Mob mob) {
-        return new Mob(mob.hp, mob.name, mob.iconPath);
+        return new Mob(mob.maxHp, mob.name, mob.iconPath);
     }
 }

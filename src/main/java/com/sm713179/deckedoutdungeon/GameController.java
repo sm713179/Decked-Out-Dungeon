@@ -7,8 +7,7 @@ package com.sm713179.deckedoutdungeon;
 import com.sm713179.deckedoutdungeon.card.*;
 import com.sm713179.deckedoutdungeon.card.collection.*;
 import com.sm713179.deckedoutdungeon.ui.*;
-import com.sm713179.deckedoutdungeon.util.parser.DeckParser;
-import com.sm713179.deckedoutdungeon.util.parser.ScoreParser;
+import com.sm713179.deckedoutdungeon.util.parser.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.concurrent.ThreadLocalRandom;
@@ -63,12 +62,10 @@ public class GameController implements KeyListener {
     }
     
     public void init() {
-        Weapon weapon = new Weapon(3, 
-                "Sword", "weapon/sword_iron");
-        player = new Player(10, 12, weapon,
+        player = new Player(10, null,
                 "Player", "player/default");
-
         Deck deck = DeckParser.read("crypt");
+        
         cardGrid = new CardGrid(deck, 3, 4);
         playerRow = cardGrid.getRows() / 2;
         playerCol = (cardGrid.getCols() - 1) / 2;
