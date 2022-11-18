@@ -4,7 +4,7 @@
 		<count>1</count>
 		<name>Knife</name>
 		<icon>weapon/knife</icon>
-		<durability>3</durability>
+		<durability>2</durability>
 	</card>
 	<card>
 		<type>Mob</type>
@@ -15,13 +15,13 @@
 	</card>
 	<card>
 		<type>Misc</type>
-		<count>6</count>
+		<count>8</count>
 		<name>Empty Tile</name>
 		<icon>misc/bonePile</icon>
 	</card>
 	<card>
 		<type>Weapon</type>
-		<count>3</count>
+		<count>2</count>
 		<name>Sword</name>
 		<icon>weapon/sword_iron</icon>
 		<durability>3</durability>
@@ -45,7 +45,7 @@
 		<count>2</count>
 		<name>Skeleton</name>
 		<icon>mob/skeleton</icon>
-		<hp>2</hp>
+		<hp>3</hp>
 	</card>
 	<card>
 		<type>Mob</type>
@@ -72,11 +72,11 @@
 	</card>
 	<card>
 		<type>Item</type>
-		<count>3</count>
+		<count>2</count>
 		<name>Health Potion</name>
 		<icon>item/potion_health</icon>
 		<itemType>HEAL</itemType>
-		<value>4</value>
+		<value>3</value>
 	</card>
 	<card>
 		<type>Trap</type>
