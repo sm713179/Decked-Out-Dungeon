@@ -34,7 +34,7 @@ public class DeckParser {
             ItemType itemType;
             
             NodeList cardList = doc.getElementsByTagName("card");
-            for(int i = 0; i < cardList.getLength(); i++) {
+            for (int i = 0; i < cardList.getLength(); i++) {
                 Node cardNode = cardList.item(i);
                 
                 if (cardNode.getNodeType() == Node.ELEMENT_NODE) {

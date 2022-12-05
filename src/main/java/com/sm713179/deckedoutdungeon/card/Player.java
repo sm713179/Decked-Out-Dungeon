@@ -45,7 +45,7 @@ public class Player extends Card {
     }
     
     public void dmg(int ap) {
-        hp = hp - ap;
+        hp -= ap;
     }
     
     public boolean isDead() {
